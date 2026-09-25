@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clear Ballot Mississauga — 2026 Mayoral Candidate Comparison</title>
+<meta name="description" content="A nonpartisan, side-by-side comparison of all 14 candidates for mayor of Mississauga in the October 26, 2026 election: bios, documented positions by issue, and AI-assisted analysis with sources.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f6f3ec; --card: #fffdf8; --ink: #14213d; --ink-soft: #4a5570; --line: #e2dccf;
+    --accent: #b8472f; --accent-soft: #f3ddd5; --navy: #1d3557; --gold: #d9a441; --gold-soft: #f6ead0;
+    --shadow: 0 1px 2px rgba(20,33,61,.06), 0 8px 24px rgba(20,33,61,.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #0f1626; --card: #172036; --ink: #eef1f7; --ink-soft: #a7b0c4; --line: #2b3754;
+      --accent: #e57a60; --accent-soft: #3a2621; --navy: #8fb3e0; --gold: #e6b75a; --gold-soft: #3a3120;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25);
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--paper); color: var(--ink); font-family: "Inter", system-ui, -apple-system, sans-serif; font-size: 17px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+  h1, h2, h3 { font-family: "Fraunces", Georgia, serif; line-height: 1.15; letter-spacing: -0.01em; }
+  a { color: var(--accent); }
+  .muted { color: var(--ink-soft); }
+  .skip { position: absolute; left: -999px; } .skip:focus { left: 12px; top: 12px; background: var(--card); padding: 8px 12px; z-index: 10; }
+
+  /* Top bar */
+  .topbar { border-bottom: 1px solid var(--line); position: sticky; top: 0; background: color-mix(in srgb, var(--paper) 92%, transparent); backdrop-filter: blur(8px); z-index: 5; }
+  .topbar .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 16px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 15px; text-decoration: none; color: var(--ink); white-space: nowrap; }
+  .brand-mark { width: 30px; height: 30px; border-radius: 8px; background: var(--navy); display: grid; place-items: center; }
+  .brand-mark svg { width: 18px; height: 18px; }
+  nav.jump { display: flex; gap: 18px; font-size: 14px; }
+  nav.jump a { color: var(--ink-soft); text-decoration: none; font-weight: 500; }
+  nav.jump a:hover { color: var(--ink); }
+
+  /* Hero */
+  .hero { padding: 80px 0 64px; position: relative; overflow: hidden; }
+  .hero::before { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(90deg, transparent 0 79px, var(--line) 79px 80px); opacity: .35; pointer-events: none; mask-image: linear-gradient(to bottom, #000 0%, transparent 85%); -webkit-mask-image: linear-gradient(to bottom, #000 0%, transparent 85%); }
+  .hero .wrap { position: relative; }
+  .eyebrow { font-size: 13px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+  .eyebrow::before { content: ""; width: 28px; height: 2px; background: var(--accent); }
+  .hero h1 { font-size: clamp(40px, 7vw, 76px); font-weight: 700; max-width: 14ch; }
+  .hero h1 em { font-style: italic; font-weight: 400; color: var(--navy); }
+  .lede { font-size: clamp(18px, 2.2vw, 21px); color: var(--ink-soft); max-width: 62ch; margin-top: 28px; }
+  .hero-meta { display: flex; flex-wrap: wrap; gap: 32px; margin-top: 40px; padding-top: 28px; border-top: 1px solid var(--line); max-width: 760px; }
+  .hero-meta div { font-size: 14px; color: var(--ink-soft); }
+  .hero-meta strong { display: block; font-family: "Fraunces", Georgia, serif; font-size: 22px; color: var(--ink); font-weight: 600; }
+
+  section { padding: 64px 0; }
+  section + section { border-top: 1px solid var(--line); }
+  .section-head { max-width: 680px; margin-bottom: 36px; }
+  .section-head h2 { font-size: clamp(28px, 4vw, 40px); font-weight: 600; }
+  .section-head p { color: var(--ink-soft); margin-top: 12px; }
+  .kicker { font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 10px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; box-shadow: var(--shadow); }
+
+  /* Markers */
+  .mk { display: inline-block; width: 18px; height: 18px; border-radius: 50%; vertical-align: middle; flex: none; }
+  .mk-plan { background: var(--navy); }
+  .mk-said { border: 2px solid var(--navy); background: linear-gradient(90deg, var(--navy) 50%, transparent 50%); }
+  .mk-pending { border: 2px dashed var(--gold); }
+  .mk-none { width: 10px; height: 2px; border-radius: 1px; background: var(--line); margin: 0 4px; }
+  @media (prefers-color-scheme: dark) { .mk-none { background: #4a5570; } }
+
+  /* Overview matrix */
+  .matrix-card { padding: 8px 0 0; overflow: hidden; }
+  .scroll-x { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  table.matrix { width: 100%; border-collapse: collapse; min-width: 720px; }
+  .matrix th, .matrix td { padding: 12px 10px; border-bottom: 1px solid var(--line); text-align: center; font-size: 14px; }
+  .matrix thead th { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; font-weight: 600; }
+  .matrix thead th a { color: var(--ink); text-decoration: none; }
+  .matrix thead th a:hover { color: var(--accent); }
+  .matrix tbody th { text-align: left; padding-left: 20px; width: 26%; }
+  .matrix tbody tr:hover { background: color-mix(in srgb, var(--gold-soft) 55%, transparent); }
+  .rowbtn { background: none; border: 0; font: inherit; font-weight: 600; color: var(--ink); cursor: pointer; text-align: left; padding: 0; }
+  .rowbtn:hover { color: var(--accent); text-decoration: underline; }
+  .matrix tfoot th { text-align: left; padding-left: 20px; font-weight: 500; color: var(--ink-soft); font-size: 13px; }
+  .matrix tfoot td { font-family: "Fraunces", Georgia, serif; font-weight: 600; font-size: 18px; border-bottom: 0; }
+  .legend { list-style: none; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px 28px; padding: 20px; font-size: 14px; border-top: 1px solid var(--line); }
+  .legend li { display: flex; gap: 12px; align-items: flex-start; }
+  .legend .mk { margin-top: 2px; }
+  .caveat { margin-top: 18px; font-size: 14px; color: var(--ink-soft); max-width: 72ch; }
+
+  /* Issue explorer */
+  .tabs { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 6px; margin-bottom: 20px; -webkit-overflow-scrolling: touch; }
+  .tab { flex: none; font: inherit; font-size: 14px; font-weight: 500; padding: 9px 16px; border-radius: 999px; border: 1px solid var(--line); background: var(--card); color: var(--ink); cursor: pointer; }
+  .tab[aria-selected="true"] { background: var(--navy); border-color: var(--navy); color: var(--paper); }
+  .tab:focus-visible, .rowbtn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .panel-title { font-size: 24px; margin: 4px 0 16px; }
+  .js .panel[hidden] { display: none; }
+  .no-js .panel + .panel { margin-top: 40px; }
+  .poslist { list-style: none; display: grid; gap: 12px; }
+  .pos { padding: 16px 20px; border-radius: 14px; background: var(--card); border: 1px solid var(--line); }
+  .pos-none { background: transparent; border-style: dashed; }
+  .pos-none p { color: var(--ink-soft); font-size: 14px; }
+  .pos-who { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin-bottom: 4px; }
+  .pos-who a { font-weight: 600; color: var(--ink); text-decoration: none; }
+  .pos-who a:hover { color: var(--accent); }
+  .pos p { font-size: 15px; }
+  .badge { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; padding: 3px 9px; border-radius: 999px; white-space: nowrap; }
+  .b-plan { background: var(--navy); color: var(--paper); }
+  .b-said { background: color-mix(in srgb, var(--navy) 14%, transparent); color: var(--navy); }
+  .b-pending { background: var(--gold-soft); color: #7a5a14; border: 1px dashed var(--gold); }
+  @media (prefers-color-scheme: dark) { .b-pending { color: var(--gold); } }
+  .b-none { background: transparent; color: var(--ink-soft); border: 1px solid var(--line); }
+
+  /* Analysis */
+  .analysis { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .finding { padding: 26px; }
+  .finding .num { font-family: "Fraunces", Georgia, serif; font-size: 30px; font-weight: 600; color: var(--gold); line-height: 1; }
+  .finding h3 { font-size: 21px; margin: 10px 0 8px; }
+  .finding p, .finding li { font-size: 15px; color: var(--ink-soft); }
+  .finding ul { margin: 10px 0 0 18px; }
+  .finding li + li { margin-top: 6px; }
+  .finding strong { color: var(--ink); }
+  .finding.wide { grid-column: 1 / -1; }
+  .byline { display: inline-flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600; padding: 10px 16px; border-radius: 12px; line-height: 1.45; background: var(--card); border: 1px solid var(--line); margin-bottom: 20px; }
+
+  .models { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 28px; }
+  .model { padding: 18px; }
+  .model h3 { font-size: 18px; }
+  .model p { font-size: 13px; color: var(--ink-soft); margin-top: 4px; }
+  .status { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; margin-top: 10px; }
+  .status::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--line); }
+  .status.done::before { background: #2f8f5b; }
+  .status.done { color: #2f8f5b; }
+  @media (prefers-color-scheme: dark) { .status.done { color: #6fcf97; } .status.done::before { background: #6fcf97; } }
+  .status.wait { color: var(--ink-soft); }
+
+  /* Strong mayor + questions */
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .box { padding: 28px; }
+  .box h3 { font-size: 22px; margin-bottom: 12px; }
+  .box p, .box li { font-size: 15px; }
+  .box ul, .box ol { margin: 12px 0 0 20px; }
+  .box li + li { margin-top: 8px; }
+  .box .small { font-size: 13px; color: var(--ink-soft); margin-top: 14px; }
+
+  /* Candidates */
+  .cands { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .cand { background: var(--card); border: 1px solid var(--line); border-radius: 18px; box-shadow: var(--shadow); padding: 26px; scroll-margin-top: 80px; }
+  .cand-head { display: flex; gap: 14px; align-items: center; margin-bottom: 14px; }
+  .avatar { width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; font-family: "Fraunces", Georgia, serif; font-weight: 600; font-size: 19px; color: var(--navy); background: var(--accent-soft); flex: none; }
+  .cand h3 { font-size: 24px; }
+  .role { font-size: 14px; color: var(--ink-soft); }
+  .bio { font-size: 15px; }
+  .cand h4 { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); margin: 20px 0 10px; }
+  .plist { list-style: none; display: grid; gap: 10px; }
+  .plist li { font-size: 14px; }
+  .plist .badge { margin-right: 8px; vertical-align: 1px; }
+  .plist .empty { color: var(--ink-soft); padding: 14px; border: 1px dashed var(--line); border-radius: 12px; }
+  .note { font-size: 13px; color: var(--ink-soft); margin-top: 12px; padding-left: 12px; border-left: 3px dashed var(--gold); }
+  .event { margin-top: 18px; padding: 14px 16px; border-radius: 12px; background: var(--paper); }
+  .event-label { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-soft); display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  .event p { font-size: 14px; margin-top: 4px; }
+  .att { font-size: 11px; padding: 2px 8px; border-radius: 999px; }
+  .att-yes { background: color-mix(in srgb, var(--navy) 14%, transparent); color: var(--navy); }
+  .att-no { background: var(--line); color: var(--ink-soft); }
+  details { margin-top: 16px; font-size: 14px; }
+  summary { cursor: pointer; font-weight: 600; color: var(--ink-soft); }
+  .srclist { margin: 8px 0 0 18px; }
+  .srclist li { margin-top: 4px; }
+
+  /* Timeline */
+  .timeline { list-style: none; border-left: 2px solid var(--line); margin-left: 8px; }
+  .timeline li { position: relative; padding: 0 0 28px 28px; display: grid; grid-template-columns: 130px 1fr; gap: 16px; }
+  .timeline li::before { content: ""; position: absolute; left: -8px; top: 5px; width: 14px; height: 14px; border-radius: 50%; background: var(--card); border: 2px solid var(--navy); }
+  .timeline li.key::before { background: var(--accent); border-color: var(--accent); }
+  .timeline li.past { opacity: .55; }
+  .timeline time { font-weight: 600; font-size: 15px; }
+  .timeline h3 { font-size: 19px; margin-bottom: 4px; }
+  .timeline p { font-size: 15px; color: var(--ink-soft); }
+
+  /* Principles, sources */
+  .principles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .principle { border-top: 3px solid var(--navy); padding-top: 20px; }
+  .principle h3 { font-size: 21px; margin-bottom: 8px; }
+  .principle p { color: var(--ink-soft); font-size: 15px; }
+  .method { margin-top: 40px; padding: 28px; }
+  .method h3 { font-size: 21px; margin-bottom: 10px; }
+  .method p, .method li { font-size: 15px; color: var(--ink-soft); }
+  .method ul { margin: 10px 0 0 20px; }
+  .allsrc { columns: 2; column-gap: 32px; margin: 12px 0 0 20px; font-size: 14px; }
+  .allsrc li { break-inside: avoid; margin-bottom: 6px; }
+
+  .notice { background: var(--navy); color: #fff; border-radius: 20px; padding: 40px; display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; }
+  @media (prefers-color-scheme: dark) { .notice { background: #22345a; } }
+  .notice h2 { font-size: 28px; font-weight: 600; }
+  .notice p { opacity: .88; margin-top: 8px; max-width: 58ch; }
+  .notice a.btn { display: inline-block; background: var(--gold); color: #14213d; text-decoration: none; font-weight: 600; padding: 14px 24px; border-radius: 12px; white-space: nowrap; }
+  footer { border-top: 1px solid var(--line); padding: 36px 0 48px; margin-top: 24px; font-size: 14px; color: var(--ink-soft); }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; }
+
+  @media (max-width: 900px) {
+    nav.jump { display: none; }
+    .analysis, .two, .cands { grid-template-columns: 1fr; }
+    .models { grid-template-columns: repeat(2, 1fr); }
+    .principles { grid-template-columns: 1fr; gap: 24px; }
+    .notice { grid-template-columns: 1fr; padding: 28px; }
+    .legend { grid-template-columns: 1fr; }
+    .allsrc { columns: 1; }
+  }
+  @media (max-width: 560px) {
+    .hero { padding: 52px 0 44px; }
+    section { padding: 48px 0; }
+    .timeline li { grid-template-columns: 1fr; gap: 4px; }
+    .models { grid-template-columns: 1fr; }
+    .cand, .box, .finding { padding: 20px; }
+  }
+
+  /* Mississauga additions */
+  .mk-record { border-radius: 4px; border: 2px solid var(--navy); background: repeating-linear-gradient(45deg, var(--navy) 0 2px, transparent 2px 5px); }
+  .b-record { background: color-mix(in srgb, var(--gold) 28%, transparent); color: var(--ink); }
+  table.matrix { min-width: 1000px; }
+  .matrix thead th { font-size: 10.5px; letter-spacing: .04em; padding: 12px 6px; vertical-align: bottom; line-height: 1.25; }
+  .matrix td { padding: 11px 4px; }
+  .matrix tbody th, .matrix thead th:first-child { position: sticky; left: 0; background: var(--card); z-index: 1; box-shadow: 1px 0 0 var(--line); }
+  .matrix tbody th { width: 168px; min-width: 168px; font-size: 13px; padding-left: 16px !important; }
+  .matrix tbody tr:hover th { background: color-mix(in srgb, var(--gold-soft) 55%, var(--card)); }
+  .pos-none .pos-who { margin-bottom: 6px; }
+  .pos-none p a { color: var(--ink-soft); }
+  .disclaimer { font-size: 13px; color: var(--ink-soft); margin-top: 14px; }
+  .hero h1 { max-width: 15ch; }
+  @media (max-width: 560px) { .matrix tbody th { width: 150px; min-width: 150px; font-size: 13px; padding-left: 14px !important; } }
+</style>
+</head>
+<body class="no-js">
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3 8-8"/><path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9"/></svg></span>
+      Clear Ballot Mississauga
+    </a>
+    <nav class="jump" aria-label="Sections">
+      <a href="#compare">Compare</a><a href="#issues">By issue</a><a href="#analysis">Analysis</a><a href="#candidates">Candidates</a><a href="#dates">Dates</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="hero" id="top">
+    <div class="wrap">
+      <p class="eyebrow">Mississauga Mayoral Election 2026</p>
+      <h1>Fourteen candidates. <em>One clear view.</em></h1>
+      <p class="lede">A plain-language, side-by-side guide to every candidate for mayor of Mississauga: who they are, what they've said on each issue, and where the public record is thin. Researched by ChatGPT, Gemini and DeepSeek, then fact-checked and consolidated by Claude. Every claim links back to its source.</p>
+      <div class="hero-meta">
+        <div><strong>Oct 26, 2026</strong>Election day</div>
+        <div><strong>Oct 6–11</strong>Advance voting</div>
+        <div><strong>14 candidates</strong>Same issues, same format</div>
+        <div><strong>4 AI engines</strong>Research &amp; fact-checking</div>
+      </div>
+    </div>
+  </div>
+
+  <section id="compare">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">At a glance</p>
+        <h2>Who has said what, on which issues.</h2>
+        <p>This chart shows how much each candidate has put on the public record for each issue. It is not a score, and it does not say whether a position is good or bad. Select an issue to read what each candidate actually said.</p>
+      </div>
+      <div class="card matrix-card">
+        <div class="scroll-x">
+          <table class="matrix">
+            <caption class="skip">Documented positions by issue and candidate</caption>
+            <thead><tr><th scope="col" style="text-align:left;padding-left:20px">Issue</th><th scope="col"><a href="#ahmed" title="Karam Ahmed">Ahmed</a></th><th scope="col"><a href="#bhatti" title="Aamir Bhatti">Bhatti</a></th><th scope="col"><a href="#crombie" title="Bonnie Crombie">Crombie</a></th><th scope="col"><a href="#damerla" title="Dipika Damerla">Damerla</a></th><th scope="col"><a href="#elliott" title="Gord Elliott">Elliott</a></th><th scope="col"><a href="#fang" title="Frank Fang">Fang</a></th><th scope="col"><a href="#jilani" title="Amjad Jilani">Jilani</a></th><th scope="col"><a href="#khan" title="Mohsin Khan">Khan</a></th><th scope="col"><a href="#matulewicz" title="Mike Matulewicz">Matulewicz</a></th><th scope="col"><a href="#naami" title="Fadi Naami">Naami</a></th><th scope="col"><a href="#parrish" title="Carolyn Parrish">Parrish</a></th><th scope="col"><a href="#shaw" title="David Shaw">Shaw</a></th><th scope="col"><a href="#tedjo" title="Alvin Tedjo">Tedjo</a></th><th scope="col"><a href="#vasquez" title="Ana Luisa Vasquez De Espinal">Vasquez De Espinal</a></th></tr></thead>
+            <tbody>
+<tr><th scope="row"><button type="button" class="rowbtn" data-issue="tax">Taxes &amp; spending</button></th><td><span class="mk mk-said" role="img" aria-label="Karam Ahmed: Reported position" title="Karam Ahmed: Reported position"></span></td><td><span class="mk mk-pending" role="img" aria-label="Aamir Bhatti: Source pending" title="Aamir Bhatti: Source pending"></span></td><td><span class="mk mk-said" role="img" aria-label="Bonnie Crombie: Reported position" title="Bonnie Crombie: Reported position"></span></td><td><span class="mk mk-plan" role="img" aria-label="Dipika Damerla: Campaign platform" title="Dipika Damerla: Campaign platform"></span></td><td><span class="mk mk-pending" role="img" aria-label="Gord Elliott: Source pending" title="Gord Elliott: Source pending"></span></td><td><span class="mk mk-plan" role="img" aria-label="Frank Fang: Campaign platform" title="Frank Fang: Campaign platform"></span></td><td><span class="mk mk-plan" role="img" aria-label="Amjad Jilani: Campaign platform" title="Amjad Jilani: Campaign platform"></span></td><td><span class="mk mk-none" role="img" aria-label="Mohsin Khan: Nothing found yet" title="Mohsin Khan: Nothing found yet"></span></td><td><span class="mk mk-plan" role="img" aria-label="Mike Matulewicz: Campaign platform" title="Mike Matulewicz: Campaign platform"></span></td><td><span class="mk mk-none" role="img" aria-label="Fadi Naami: Nothing found yet" title="Fadi Naami: Nothing found yet"></span></td><td><span class="mk mk-said" role="img" aria-label="Carolyn Parrish: Reported position" title="Carolyn Parrish: Reported position"></span></td><td><span class="mk mk-said" role="img" aria-label="David Shaw: Reported position" title="David Shaw: Reported position"></span></td><td><span class="mk mk-plan" role="img" aria-label="Alvin Tedjo: Campaign platform" title="Alvin Tedjo: Campaign platform"></span></td><td><span class="mk mk-none" role="img" aria-label="Ana Luisa Vasquez De Espinal: Nothing found yet" title="Ana Luisa Vasquez De Espinal: Nothing found yet"></span></td></tr>
+<tr><th scope="row"><button type="button" class="rowbtn" data-issue="housing">Housing &amp; development</button></th><td><span class="mk mk-none" role="img" aria-label="Karam Ahmed: Nothing found yet" title="Karam Ahmed: Nothing found yet"></span></td><td><span class="mk mk-none" role="img" aria-label="Aamir Bhatti: Nothing found yet" title="Aamir Bhatti: Nothing found yet"></span></td><td><span class="mk mk-said" role="img" aria-label="Bonnie Crombie: Reported position" title="Bonnie Crombie: Reported position"></span></td><td><span class="mk mk-plan" role="img" aria-label="Dipika Damerla: Campaign platform" title="Dipika Damerla: Campaign platform"></span></td><td><span class="mk mk-said" role="img" aria-label="Gord Elliott: Reported position" title="Gord Elliott: Reported position"></span></td><td><span class="mk mk-none" role="img" aria-label="Frank Fang: Nothing found yet" title="Frank Fang: Nothing found yet"></span></td><td><span class="mk mk-plan" role="img" aria-label="Amjad Jilani: Campaign platform" title="Amjad Jilani: Campaign platform"></span></td><td><span class="mk mk-none" role="img" aria-label="Mohsin Khan: Nothing found yet" title="Mohsin Khan: Nothing found yet"></span></td><td><span class="mk mk-plan" role="img" aria-label="Mike Matulewicz: Campaign platform" title="Mike Matulewicz: Campaign platform"></span></td><td><span class="mk mk-none" role="img" aria-label="Fadi Naami: Nothing found yet" title="Fadi Naami: Nothing found yet"></span></td><td><span class="mk mk-record" role="img" aria-label="Carolyn Parrish: Record in office" title="Carolyn Parrish: Record in office"></span></td><td><span class="mk mk-said" role="img" aria-label="David Shaw: Reported position" title="David Shaw: Reported position"></span></td><td><span class="mk mk-plan" role="img" aria-label="Alvin Tedjo: Campaign platform" title="Alvin Tedjo: Campaign platform"></span></td><td><span class="mk mk-none" role="img" aria-label="Ana Luisa Vasquez De Espinal: Nothing found yet" title="Ana Luisa Vasquez De Espinal: Nothing found yet"></span></td></tr>
+<tr><th scope="row"><button type="button" class="rowbtn" data-issue="transit">Transit</button></th><td><span class="mk mk-none" role="img" aria-label="Karam Ahmed: Nothing found yet" title="Karam Ahmed: Nothing found yet"></span></td><td><span class="mk mk-none" role="img" aria-label="Aamir Bhatti: Nothing found yet" title="Aamir Bhatti: Nothing found yet"></span></td><td><span class="mk mk-plan" role="img" aria-label="Bonnie Crombie: Campaign platform" title="Bonnie Crombie: Campaign platform"></span></td><td><span class="mk mk-plan" role="img" aria-label="Dipika Damerla: Campaign platform" title="Dipika Damerla: Campaign platform"></span></td><td><span class="mk mk-none" role="img" aria-label="Gord Elliott: Nothing found yet" title="Gord Elliott: Nothing found yet"></span></td><td><span class="mk mk-none" role="img" aria-label="Frank Fang: Nothing found yet" title="Frank Fang: Nothing found yet"></span></td><td><span class="mk mk-none" role="img" aria-label="Amjad Jilani: Nothing found yet" title="Amjad Jilani: Nothing found yet"></span></td><td><span class="mk mk-none" role="img" aria-label="Mohsin Khan: Nothing found yet" title="Mohsin Khan: Nothing found yet"></span></td><td><span class="mk mk-said" role="img" aria-label="Mike Matulewicz: Reported position" title="Mike Matulewicz: Reported position"></span></td><td><span class="mk mk-none" role="img" aria-label="Fadi Naami: Nothing found yet" title="Fadi Naami: Nothing found yet"></span></td><td><span class="mk mk-none" role="img" aria-label="Carolyn Parrish: Nothing found yet" title="Carolyn Parrish: Nothing found yet"></span></td><td><span class="mk mk-none" role="img" aria-label="David Shaw: Nothing found yet" title="David Shaw: Nothing found yet"></span></td><td><span class="mk mk-plan" role="img" aria-label="Alvin Tedjo: Campaign platform" title="Alvin Tedjo: Campaign platform"></span></td><td><span class="mk mk-none" role="img" aria-label="Ana Luisa Vasquez De Espinal: Nothing found yet" title="Ana Luisa Vasquez De Espinal: Nothing found yet"></span></td></tr>
+<tr><th scope="row"><button type="button" class="rowbtn" data-issue="roads">Roads, traffic &amp; snow</button></th><td><span class="mk mk-none" role="img" aria-label="Karam Ahmed: Nothing found yet" title="Karam Ahmed: Nothing found yet"></span></td><td><span class="mk mk-none" role="img" aria-label="Aamir Bhatti: Nothing found yet" title="Aamir Bhatti: Nothing found yet"></span></td><td><span class="mk mk-plan" role="img" aria-label="Bonnie Crombie: Campaign platform" title="Bonnie Crombie: Campaign platform"></span></td><td><span class="mk mk-plan" role="img" aria-label="Dipika Damerla: Campaign platform" title="Dipika Damerla: Campaign platform"></span></td><td><span class="mk mk-none" role="img" aria-label="Gord Elliott: Nothing found yet" title="Gord Elliott: Nothing found yet"></span></td><td><span class="mk mk-plan" role="img" aria-label="Frank Fang: Campaign platform" title="Frank Fang: Campaign platform"></span></td><td><span class="mk mk-plan" role="img" aria-label="Amjad Jilani: Campaign platform" title="Amjad Jilani: Campaign platform"></span></td><td><span class="mk mk-none" role="img" aria-label="Mohsin Khan: Nothing found yet" title="Mohsin Khan: Nothing found yet"></span></td><td><span class="mk mk-none" role="img" aria-label="Mike Matulewicz: Nothing found yet" title="Mike Matulewicz: Nothing found yet"></span></td><td><span class="mk mk-none" role="img" aria-label="Fadi Naami: Nothing found yet" title="Fadi Naami: Nothing found yet"></span></td><td><span class="mk mk-none" role="img" aria-label="Carolyn Parrish: Nothing found yet" title="Carolyn Parrish: Nothing found yet"></span></td><td><span class="mk mk-none" role="img" aria-label="David Shaw: Nothing found yet" title="David Shaw: Nothing found yet"></span></td><td><span class="mk mk-none" role="img" aria-label="Alvin Tedjo: Nothing found yet" title="Alvin Tedjo: Nothing found yet"></span></td><td><span class="mk mk-said" role="img" aria-label="Ana Luisa Vasquez De Espinal: Reported position" title="Ana Luisa Vasquez De Espinal: Reported position"></span></td></tr>
+<tr><th scope="row"><button type="button" class="rowbtn" data-issue="safety">Public safety &amp; policing</button></th><td><span class="mk mk-said" role="img" aria-label="Karam Ahmed: Reported position" title="Karam Ahmed: Reported position"></span></td><td><span class="mk mk-none" role="img" aria-label="Aamir Bhatti: Nothing found yet" title="Aamir Bhatti: Nothing found yet"></span></td><td><span class="mk mk-plan" role="img" aria-label="Bonnie Crombie: Campaign platform" title="Bonnie Crombie: Campaign platform"></span></td><td><span class="mk mk-plan" role="img" aria-label="Dipika Damerla: Campaign platform" title="Dipika Damerla: Campaign platform"></span></td><td><span class="mk mk-none" role="img" aria-label="Gord Elliott: Nothing found yet" title="Gord Elliott: Nothing found yet"></span></td><td><span class="mk mk-plan" role="img" aria-label="Frank Fang: Campaign platform" title="Frank Fang: Campaign platform"></span></td><td><span class="mk mk-plan" role="img" aria-label="Amjad Jilani: Campaign platform" title="Amjad Jilani: Campaign platform"></span></td><td><span class="mk mk-none" role="img" aria-label="Mohsin Khan: Nothing found yet" title="Mohsin Khan: Nothing found yet"></span></td><td><span class="mk mk-plan" role="img" aria-label="Mike Matulewicz: Campaign platform" title="Mike Matulewicz: Campaign platform"></span></td><td><span class="mk mk-pending" role="img" aria-label="Fadi Naami: Source pending" title="Fadi Naami: Source pending"></span></td><td><span class="mk mk-record" role="img" aria-label="Carolyn Parrish: Record in office" title="Carolyn Parrish: Record in office"></span></td><td><span class="mk mk-none" role="img" aria-label="David Shaw: Nothing found yet" title="David Shaw: Nothing found yet"></span></td><td><span class="mk mk-plan" role="img" aria-label="Alvin Tedjo: Campaign platform" title="Alvin Tedjo: Campaign platform"></span></td><td><span class="mk mk-none" role="img" aria-label="Ana Luisa Vasquez De Espinal: Nothing found yet" title="Ana Luisa Vasquez De Espinal: Nothing found yet"></span></td></tr>
+<tr><th scope="row"><button type="button" class="rowbtn" data-issue="economy">Economy &amp; jobs</button></th><td><span class="mk mk-none" role="img" aria-label="Karam Ahmed: Nothing found yet" title="Karam Ahmed: Nothing found yet"></span></td><td><span class="mk mk-none" role="img" aria-label="Aamir Bhatti: Nothing found yet" title="Aamir Bhatti: Nothing found yet"></span></td><td><span class="mk mk-plan" role="img" aria-label="Bonnie Crombie: Campaign platform" title="Bonnie Crombie: Campaign platform"></span></td><td><span class="mk mk-plan" role="img" aria-label="Dipika Damerla: Campaign platform" title="Dipika Damerla: Campaign platform"></span></td><td><span class="mk mk-said" role="img" aria-label="Gord Elliott: Reported position" title="Gord Elliott: Reported position"></span></td><td><span class="mk mk-none" role="img" aria-label="Frank Fang: Nothing found yet" title="Frank Fang: Nothing found yet"></span></td><td><span class="mk mk-none" role="img" aria-label="Amjad Jilani: Nothing found yet" title="Amjad Jilani: Nothing found yet"></span></td><td><span class="mk mk-none" role="img" aria-label="Mohsin Khan: Nothing found yet" title="Mohsin Khan: Nothing found yet"></span></td><td><span class="mk mk-none" role="img" aria-label="Mike Matulewicz: Nothing found yet" title="Mike Matulewicz: Nothing found yet"></span></td><td><span class="mk mk-pending" role="img" aria-label="Fadi Naami: Source pending" title="Fadi Naami: Source pending"></span></td><td><span class="mk mk-none" role="img" aria-label="Carolyn Parrish: Nothing found yet" title="Carolyn Parrish: Nothing found yet"></span></td><td><span class="mk mk-none" role="img" aria-label="David Shaw: Nothing found yet" title="David Shaw: Nothing found yet"></span></td><td><span class="mk mk-none" role="img" aria-label="Alvin Tedjo: Nothing found yet" title="Alvin Tedjo: Nothing found yet"></span></td><td><span class="mk mk-pending" role="img" aria-label="Ana Luisa Vasquez De Espinal: Source pending" title="Ana Luisa Vasquez De Espinal: Source pending"></span></td></tr>
+<tr><th scope="row"><button type="button" class="rowbtn" data-issue="open">Accountability &amp; transparency</button></th><td><span class="mk mk-none" role="img" aria-label="Karam Ahmed: Nothing found yet" title="Karam Ahmed: Nothing found yet"></span></td><td><span class="mk mk-none" role="img" aria-label="Aamir Bhatti: Nothing found yet" title="Aamir Bhatti: Nothing found yet"></span></td><td><span class="mk mk-none" role="img" aria-label="Bonnie Crombie: Nothing found yet" title="Bonnie Crombie: Nothing found yet"></span></td><td><span class="mk mk-plan" role="img" aria-label="Dipika Damerla: Campaign platform" title="Dipika Damerla: Campaign platform"></span></td><td><span class="mk mk-said" role="img" aria-label="Gord Elliott: Reported position" title="Gord Elliott: Reported position"></span></td><td><span class="mk mk-none" role="img" aria-label="Frank Fang: Nothing found yet" title="Frank Fang: Nothing found yet"></span></td><td><span class="mk mk-plan" role="img" aria-label="Amjad Jilani: Campaign platform" title="Amjad Jilani: Campaign platform"></span></td><td><span class="mk mk-none" role="img" aria-label="Mohsin Khan: Nothing found yet" title="Mohsin Khan: Nothing found yet"></span></td><td><span class="mk mk-plan" role="img" aria-label="Mike Matulewicz: Campaign platform" title="Mike Matulewicz: Campaign platform"></span></td><td><span class="mk mk-none" role="img" aria-label="Fadi Naami: Nothing found yet" title="Fadi Naami: Nothing found yet"></span></td><td><span class="mk mk-none" role="img" aria-label="Carolyn Parrish: Nothing found yet" title="Carolyn Parrish: Nothing found yet"></span></td><td><span class="mk mk-said" role="img" aria-label="David Shaw: Reported position" title="David Shaw: Reported position"></span></td><td><span class="mk mk-none" role="img" aria-label="Alvin Tedjo: Nothing found yet" title="Alvin Tedjo: Nothing found yet"></span></td><td><span class="mk mk-said" role="img" aria-label="Ana Luisa Vasquez De Espinal: Reported position" title="Ana Luisa Vasquez De Espinal: Reported position"></span></td></tr>
+<tr><th scope="row"><button type="button" class="rowbtn" data-issue="data">Data centres</button></th><td><span class="mk mk-none" role="img" aria-label="Karam Ahmed: Nothing found yet" title="Karam Ahmed: Nothing found yet"></span></td><td><span class="mk mk-none" role="img" aria-label="Aamir Bhatti: Nothing found yet" title="Aamir Bhatti: Nothing found yet"></span></td><td><span class="mk mk-said" role="img" aria-label="Bonnie Crombie: Reported position" title="Bonnie Crombie: Reported position"></span></td><td><span class="mk mk-said" role="img" aria-label="Dipika Damerla: Reported position" title="Dipika Damerla: Reported position"></span></td><td><span class="mk mk-none" role="img" aria-label="Gord Elliott: Nothing found yet" title="Gord Elliott: Nothing found yet"></span></td><td><span class="mk mk-none" role="img" aria-label="Frank Fang: Nothing found yet" title="Frank Fang: Nothing found yet"></span></td><td><span class="mk mk-none" role="img" aria-label="Amjad Jilani: Nothing found yet" title="Amjad Jilani: Nothing found yet"></span></td><td><span class="mk mk-none" role="img" aria-label="Mohsin Khan: Nothing found yet" title="Mohsin Khan: Nothing found yet"></span></td><td><span class="mk mk-said" role="img" aria-label="Mike Matulewicz: Reported position" title="Mike Matulewicz: Reported position"></span></td><td><span class="mk mk-none" role="img" aria-label="Fadi Naami: Nothing found yet" title="Fadi Naami: Nothing found yet"></span></td><td><span class="mk mk-record" role="img" aria-label="Carolyn Parrish: Record in office" title="Carolyn Parrish: Record in office"></span></td><td><span class="mk mk-none" role="img" aria-label="David Shaw: Nothing found yet" title="David Shaw: Nothing found yet"></span></td><td><span class="mk mk-said" role="img" aria-label="Alvin Tedjo: Reported position" title="Alvin Tedjo: Reported position"></span></td><td><span class="mk mk-said" role="img" aria-label="Ana Luisa Vasquez De Espinal: Reported position" title="Ana Luisa Vasquez De Espinal: Reported position"></span></td></tr>
+<tr><th scope="row"><button type="button" class="rowbtn" data-issue="comm">Parks, youth &amp; community</button></th><td><span class="mk mk-said" role="img" aria-label="Karam Ahmed: Reported position" title="Karam Ahmed: Reported position"></span></td><td><span class="mk mk-none" role="img" aria-label="Aamir Bhatti: Nothing found yet" title="Aamir Bhatti: Nothing found yet"></span></td><td><span class="mk mk-none" role="img" aria-label="Bonnie Crombie: Nothing found yet" title="Bonnie Crombie: Nothing found yet"></span></td><td><span class="mk mk-plan" role="img" aria-label="Dipika Damerla: Campaign platform" title="Dipika Damerla: Campaign platform"></span></td><td><span class="mk mk-none" role="img" aria-label="Gord Elliott: Nothing found yet" title="Gord Elliott: Nothing found yet"></span></td><td><span class="mk mk-none" role="img" aria-label="Frank Fang: Nothing found yet" title="Frank Fang: Nothing found yet"></span></td><td><span class="mk mk-plan" role="img" aria-label="Amjad Jilani: Campaign platform" title="Amjad Jilani: Campaign platform"></span></td><td><span class="mk mk-none" role="img" aria-label="Mohsin Khan: Nothing found yet" title="Mohsin Khan: Nothing found yet"></span></td><td><span class="mk mk-plan" role="img" aria-label="Mike Matulewicz: Campaign platform" title="Mike Matulewicz: Campaign platform"></span></td><td><span class="mk mk-pending" role="img" aria-label="Fadi Naami: Source pending" title="Fadi Naami: Source pending"></span></td><td><span class="mk mk-none" role="img" aria-label="Carolyn Parrish: Nothing found yet" title="Carolyn Parrish: Nothing found yet"></span></td><td><span class="mk mk-none" role="img" aria-label="David Shaw: Nothing found yet" title="David Shaw: Nothing found yet"></span></td><td><span class="mk mk-plan" role="img" aria-label="Alvin Tedjo: Campaign platform" title="Alvin Tedjo: Campaign platform"></span></td><td><span class="mk mk-none" role="img" aria-label="Ana Luisa Vasquez De Espinal: Nothing found yet" title="Ana Luisa Vasquez De Espinal: Nothing found yet"></span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="legend"><li><span class="mk mk-plan" aria-hidden="true"></span><span><strong>Campaign platform</strong> <span class="muted">— Published on the candidate's own campaign website</span></span></li><li><span class="mk mk-said" aria-hidden="true"></span><span><strong>Reported position</strong> <span class="muted">— From news coverage, a debate, an op-ed or an election guide</span></span></li><li><span class="mk mk-record" aria-hidden="true"></span><span><strong>Record in office</strong> <span class="muted">— Something done as mayor, for the incumbent</span></span></li><li><span class="mk mk-pending" aria-hidden="true"></span><span><strong>Source pending</strong> <span class="muted">— Found in research, but the original source couldn't be opened to confirm it</span></span></li><li><span class="mk mk-none" aria-hidden="true"></span><span><strong>Nothing found yet</strong> <span class="muted">— No documented position found. This does not mean the candidate has no view</span></span></li></ul>
+      </div>
+      <p class="caveat">A blank cell means we haven't found a documented position yet, not that the candidate doesn't have one. Candidates who publish a written platform will naturally show more here. The chart scrolls sideways; the issue column stays in place.</p>
+    </div>
+  </section>
+
+  <section id="issues">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">Issue by issue</p>
+        <h2>Read the positions side by side.</h2>
+        <p>Candidates with a documented position appear in alphabetical order under each issue, followed by those with nothing found yet. Summaries are paraphrased from campaign websites and news reports; quotation marks show their exact words.</p>
+      </div>
+      <div class="tabs" role="tablist" aria-label="Issues"><button type="button" role="tab" class="tab" id="tab-tax" aria-controls="panel-tax" aria-selected="true" data-issue="tax">Taxes &amp; spending</button><button type="button" role="tab" class="tab" id="tab-housing" aria-controls="panel-housing" aria-selected="false" data-issue="housing">Housing &amp; development</button><button type="button" role="tab" class="tab" id="tab-transit" aria-controls="panel-transit" aria-selected="false" data-issue="transit">Transit</button><button type="button" role="tab" class="tab" id="tab-roads" aria-controls="panel-roads" aria-selected="false" data-issue="roads">Roads, traffic &amp; snow</button><button type="button" role="tab" class="tab" id="tab-safety" aria-controls="panel-safety" aria-selected="false" data-issue="safety">Public safety &amp; policing</button><button type="button" role="tab" class="tab" id="tab-economy" aria-controls="panel-economy" aria-selected="false" data-issue="economy">Economy &amp; jobs</button><button type="button" role="tab" class="tab" id="tab-open" aria-controls="panel-open" aria-selected="false" data-issue="open">Accountability &amp; transparency</button><button type="button" role="tab" class="tab" id="tab-data" aria-controls="panel-data" aria-selected="false" data-issue="data">Data centres</button><button type="button" role="tab" class="tab" id="tab-comm" aria-controls="panel-comm" aria-selected="false" data-issue="comm">Parks, youth &amp; community</button></div>
+      <div class="panel" role="tabpanel" id="panel-tax" aria-labelledby="tab-tax"><h3 class="panel-title">Taxes &amp; spending</h3><ul class="poslist"><li class="pos pos-said"><div class="pos-who"><a href="#ahmed">Karam Ahmed</a><span class="badge b-said">Reported position</span></div><p>Lower municipal property taxes, and lobby the province for relief.</p></li><li class="pos pos-pending"><div class="pos-who"><a href="#bhatti">Aamir Bhatti</a><span class="badge b-pending">Source pending</span></div><p>Reported to be campaigning on helping families and lowering the cost of living.</p></li><li class="pos pos-said"><div class="pos-who"><a href="#crombie">Bonnie Crombie</a><span class="badge b-said">Reported position</span></div><p>Rejects a tax freeze (“You can&#x27;t freeze, as you can&#x27;t make up the savings”). Would hire an independent auditor and ask departments to cut spending 10% over her first two years.</p></li><li class="pos pos-plan"><div class="pos-who"><a href="#damerla">Dipika Damerla</a><span class="badge b-plan">Campaign platform</span></div><p>Freeze the city&#x27;s share of residential property taxes in 2027, then hold increases to inflation unless tied to added services.</p></li><li class="pos pos-pending"><div class="pos-who"><a href="#elliott">Gord Elliott</a><span class="badge b-pending">Source pending</span></div><p>Reported to oppose property-tax increases.</p></li><li class="pos pos-plan"><div class="pos-who"><a href="#fang">Frank Fang</a><span class="badge b-plan">Campaign platform</span></div><p>“Axe property tax” during his term.</p></li><li class="pos pos-plan"><div class="pos-who"><a href="#jilani">Amjad Jilani</a><span class="badge b-plan">Campaign platform</span></div><p>Zero increase in the city&#x27;s share of residential property tax, paid for by cutting senior management and waste.</p></li><li class="pos pos-plan"><div class="pos-who"><a href="#matulewicz">Mike Matulewicz</a><span class="badge b-plan">Campaign platform</span></div><p>Target at least a 5% cut to the city&#x27;s operating budget, focused on administration; property-tax deferral for seniors.</p></li><li class="pos pos-said"><div class="pos-who"><a href="#parrish">Carolyn Parrish</a><span class="badge b-said">Reported position</span></div><p>Has called large budget increases “unsustainable” and wants more tax dollars kept in Mississauga.</p></li><li class="pos pos-said"><div class="pos-who"><a href="#shaw">David Shaw</a><span class="badge b-said">Reported position</span></div><p>Strongly opposes tax increases and calls for closer scrutiny of city spending.</p></li><li class="pos pos-plan"><div class="pos-who"><a href="#tedjo">Alvin Tedjo</a><span class="badge b-plan">Campaign platform</span></div><p>Freeze property taxes. His detailed priorities page adds a $420 rebate for seniors with household income under $60,000 and a 15% property-tax cut for small businesses. On council he proposed a holiday on property-tax late fees.</p></li><li class="pos pos-none"><div class="pos-who"><span class="badge b-none">Nothing found yet</span></div><p><a href="#khan">Mohsin Khan</a>, <a href="#naami">Fadi Naami</a>, <a href="#vasquez">Ana Luisa Vasquez De Espinal</a></p></li></ul></div>
+<div class="panel" role="tabpanel" id="panel-housing" aria-labelledby="tab-housing"><h3 class="panel-title">Housing &amp; development</h3><ul class="poslist"><li class="pos pos-said"><div class="pos-who"><a href="#crombie">Bonnie Crombie</a><span class="badge b-said">Reported position</span></div><p>Continue the development-charge reductions made under Parrish to lower costs for first-time buyers. Has previously called for eliminating development charges entirely.</p></li><li class="pos pos-plan"><div class="pos-who"><a href="#damerla">Dipika Damerla</a><span class="badge b-plan">Campaign platform</span></div><p>Let a professional engineer&#x27;s seal speed approvals for small residential projects; encourage family-sized, rental, co-op and non-profit housing.</p></li><li class="pos pos-said"><div class="pos-who"><a href="#elliott">Gord Elliott</a><span class="badge b-said">Reported position</span></div><p>Housing affordability and tenant protections.</p></li><li class="pos pos-plan"><div class="pos-who"><a href="#jilani">Amjad Jilani</a><span class="badge b-plan">Campaign platform</span></div><p>Direct growth to areas where water, sewers, roads and transit can handle it.</p></li><li class="pos pos-plan"><div class="pos-who"><a href="#matulewicz">Mike Matulewicz</a><span class="badge b-plan">Campaign platform</span></div><p>A community land trust for permanently affordable housing, including on city land.</p></li><li class="pos pos-record"><div class="pos-who"><a href="#parrish">Carolyn Parrish</a><span class="badge b-record">Record in office</span></div><p>Created the Mayor&#x27;s Housing Task Force. Council cut residential development charges 50% in January 2025 (100% for qualifying three-bedroom rentals) and expanded affordable-rental incentives from $44M to $70M. Her campaign cites $401.4M in housing-infrastructure funding.</p></li><li class="pos pos-said"><div class="pos-who"><a href="#shaw">David Shaw</a><span class="badge b-said">Reported position</span></div><p>Supports more housing and calls affordability important, but no detailed plan was found. Opposes “15-minute cities.”</p></li><li class="pos pos-plan"><div class="pos-who"><a href="#tedjo">Alvin Tedjo</a><span class="badge b-plan">Campaign platform</span></div><p>Missing-middle housing, homes on underused land, faster approvals and programs for families priced out of the market.</p></li><li class="pos pos-none"><div class="pos-who"><span class="badge b-none">Nothing found yet</span></div><p><a href="#ahmed">Karam Ahmed</a>, <a href="#bhatti">Aamir Bhatti</a>, <a href="#fang">Frank Fang</a>, <a href="#khan">Mohsin Khan</a>, <a href="#naami">Fadi Naami</a>, <a href="#vasquez">Ana Luisa Vasquez De Espinal</a></p></li></ul></div>
+<div class="panel" role="tabpanel" id="panel-transit" aria-labelledby="tab-transit"><h3 class="panel-title">Transit</h3><ul class="poslist"><li class="pos pos-plan"><div class="pos-who"><a href="#crombie">Bonnie Crombie</a><span class="badge b-plan">Campaign platform</span></div><p>“Mississauga Moves 2.0”: a business case in year one, with the province, Metrolinx, Toronto and the TTC, for extending Line 2 from Kipling through Sherway Gardens into downtown Mississauga; 15-minute MiWay service on major routes; a transit network for Pearson airport workers.</p></li><li class="pos pos-plan"><div class="pos-who"><a href="#damerla">Dipika Damerla</a><span class="badge b-plan">Campaign platform</span></div><p>“OFF We GO” plan: transit-priority signals, 15-minute frequent service and more express buses; MiWay transfers extended to three hours in 2028; more stops on the Lakeshore GO line to create a “surface subway.”</p></li><li class="pos pos-said"><div class="pos-who"><a href="#matulewicz">Mike Matulewicz</a><span class="badge b-said">Reported position</span></div><p>Major transit investment, partly funded by a proposed fuel levy.</p></li><li class="pos pos-plan"><div class="pos-who"><a href="#tedjo">Alvin Tedjo</a><span class="badge b-plan">Campaign platform</span></div><p>A rapid-transit grid, more buses and operators, and a new Dundas East LRT. Says Crombie&#x27;s subway plan is “a step behind” without provincial support.</p></li><li class="pos pos-none"><div class="pos-who"><span class="badge b-none">Nothing found yet</span></div><p><a href="#ahmed">Karam Ahmed</a>, <a href="#bhatti">Aamir Bhatti</a>, <a href="#elliott">Gord Elliott</a>, <a href="#fang">Frank Fang</a>, <a href="#jilani">Amjad Jilani</a>, <a href="#khan">Mohsin Khan</a>, <a href="#naami">Fadi Naami</a>, <a href="#parrish">Carolyn Parrish</a>, <a href="#shaw">David Shaw</a>, <a href="#vasquez">Ana Luisa Vasquez De Espinal</a></p></li></ul></div>
+<div class="panel" role="tabpanel" id="panel-roads" aria-labelledby="tab-roads"><h3 class="panel-title">Roads, traffic &amp; snow</h3><ul class="poslist"><li class="pos pos-plan"><div class="pos-who"><a href="#crombie">Bonnie Crombie</a><span class="badge b-plan">Campaign platform</span></div><p>A “Traffic Flow First” program with synchronized traffic signals to cut congestion.</p></li><li class="pos pos-plan"><div class="pos-who"><a href="#damerla">Dipika Damerla</a><span class="badge b-plan">Campaign platform</span></div><p>A pothole guarantee: major potholes on arterial roads fixed within four days.</p></li><li class="pos pos-plan"><div class="pos-who"><a href="#fang">Frank Fang</a><span class="badge b-plan">Campaign platform</span></div><p>Resolve snow removal in front of residents&#x27; homes.</p></li><li class="pos pos-plan"><div class="pos-who"><a href="#jilani">Amjad Jilani</a><span class="badge b-plan">Campaign platform</span></div><p>Compounding penalties for late city construction contracts, and a “Dig Once” policy that coordinates utility, water and transit work.</p></li><li class="pos pos-said"><div class="pos-who"><a href="#vasquez">Ana Luisa Vasquez De Espinal</a><span class="badge b-said">Reported position</span></div><p>Year 1: an independent inspection of water, sewer, road and transit systems. Infrastructure spending would begin in Year 2.</p></li><li class="pos pos-none"><div class="pos-who"><span class="badge b-none">Nothing found yet</span></div><p><a href="#ahmed">Karam Ahmed</a>, <a href="#bhatti">Aamir Bhatti</a>, <a href="#elliott">Gord Elliott</a>, <a href="#khan">Mohsin Khan</a>, <a href="#matulewicz">Mike Matulewicz</a>, <a href="#naami">Fadi Naami</a>, <a href="#parrish">Carolyn Parrish</a>, <a href="#shaw">David Shaw</a>, <a href="#tedjo">Alvin Tedjo</a></p></li></ul></div>
+<div class="panel" role="tabpanel" id="panel-safety" aria-labelledby="tab-safety"><h3 class="panel-title">Public safety &amp; policing</h3><ul class="poslist"><li class="pos pos-said"><div class="pos-who"><a href="#ahmed">Karam Ahmed</a><span class="badge b-said">Reported position</span></div><p>More regional and provincial police support against auto theft and violent crime.</p></li><li class="pos pos-plan"><div class="pos-who"><a href="#crombie">Bonnie Crombie</a><span class="badge b-plan">Campaign platform</span></div><p>A Community Safety Plan focused on frontline policing and safer neighbourhoods. Would retake a seat on the Peel Police Services Board, which Parrish left.</p></li><li class="pos pos-plan"><div class="pos-who"><a href="#damerla">Dipika Damerla</a><span class="badge b-plan">Campaign platform</span></div><p>Targeted CCTV at major intersections and value-for-money audits of police spending. Wants an independent review of the Peel police funding formula, under which she says Mississauga pays about 62% of costs.</p></li><li class="pos pos-plan"><div class="pos-who"><a href="#fang">Frank Fang</a><span class="badge b-plan">Campaign platform</span></div><p>A $10 million reward fund for residents who help prevent or solve crime.</p></li><li class="pos pos-plan"><div class="pos-who"><a href="#jilani">Amjad Jilani</a><span class="badge b-plan">Campaign platform</span></div><p>City matching grants for neighbourhoods that hire licensed security patrols; seek Mississauga&#x27;s seat on the Peel Police Services Board; more city-funded mental-health crisis workers.</p></li><li class="pos pos-plan"><div class="pos-who"><a href="#matulewicz">Mike Matulewicz</a><span class="badge b-plan">Campaign platform</span></div><p>A 305-person civilian Community Response Unit for non-criminal 911 calls; scrutiny of Peel police budget growth; funding for safe shelter for women fleeing violence.</p></li><li class="pos pos-pending"><div class="pos-who"><a href="#naami">Fadi Naami</a><span class="badge b-pending">Source pending</span></div><p>Reported to be campaigning on safer communities.</p></li><li class="pos pos-record"><div class="pos-who"><a href="#parrish">Carolyn Parrish</a><span class="badge b-record">Record in office</span></div><p>Resigned from the Peel Police Services Board in a dispute over the size of the police budget and how it is funded.</p></li><li class="pos pos-plan"><div class="pos-who"><a href="#tedjo">Alvin Tedjo</a><span class="badge b-plan">Campaign platform</span></div><p>A municipal task force on auto theft, and work with other governments to crack down on crime.</p></li><li class="pos pos-none"><div class="pos-who"><span class="badge b-none">Nothing found yet</span></div><p><a href="#bhatti">Aamir Bhatti</a>, <a href="#elliott">Gord Elliott</a>, <a href="#khan">Mohsin Khan</a>, <a href="#shaw">David Shaw</a>, <a href="#vasquez">Ana Luisa Vasquez De Espinal</a></p></li></ul></div>
+<div class="panel" role="tabpanel" id="panel-economy" aria-labelledby="tab-economy"><h3 class="panel-title">Economy &amp; jobs</h3><ul class="poslist"><li class="pos pos-plan"><div class="pos-who"><a href="#crombie">Bonnie Crombie</a><span class="badge b-plan">Campaign platform</span></div><p>A Tariff and Trade Resilience Plan: protect local businesses and jobs, favour local and Canadian procurement, and help companies diversify beyond the U.S.</p></li><li class="pos pos-plan"><div class="pos-who"><a href="#damerla">Dipika Damerla</a><span class="badge b-plan">Campaign platform</span></div><p>Fast-track approvals for manufacturers hit by tariffs, a health innovation hub, and “buy Canadian” city purchasing.</p></li><li class="pos pos-said"><div class="pos-who"><a href="#elliott">Gord Elliott</a><span class="badge b-said">Reported position</span></div><p>Campaigning to represent small-business owners.</p></li><li class="pos pos-pending"><div class="pos-who"><a href="#naami">Fadi Naami</a><span class="badge b-pending">Source pending</span></div><p>Reported to be campaigning on economic growth.</p></li><li class="pos pos-pending"><div class="pos-who"><a href="#vasquez">Ana Luisa Vasquez De Espinal</a><span class="badge b-pending">Source pending</span></div><p>“City Hall at the speed of business,” with development charges set so they don&#x27;t block smaller projects.</p></li><li class="pos pos-none"><div class="pos-who"><span class="badge b-none">Nothing found yet</span></div><p><a href="#ahmed">Karam Ahmed</a>, <a href="#bhatti">Aamir Bhatti</a>, <a href="#fang">Frank Fang</a>, <a href="#jilani">Amjad Jilani</a>, <a href="#khan">Mohsin Khan</a>, <a href="#matulewicz">Mike Matulewicz</a>, <a href="#parrish">Carolyn Parrish</a>, <a href="#shaw">David Shaw</a>, <a href="#tedjo">Alvin Tedjo</a></p></li></ul></div>
+<div class="panel" role="tabpanel" id="panel-open" aria-labelledby="tab-open"><h3 class="panel-title">Accountability &amp; transparency</h3><ul class="poslist"><li class="pos pos-plan"><div class="pos-who"><a href="#damerla">Dipika Damerla</a><span class="badge b-plan">Campaign platform</span></div><p>An independent Auditor General, a fraud-and-waste hotline, and no severance for politicians who resign or retire.</p></li><li class="pos pos-said"><div class="pos-who"><a href="#elliott">Gord Elliott</a><span class="badge b-said">Reported position</span></div><p>Make meetings between developers and council public.</p></li><li class="pos pos-plan"><div class="pos-who"><a href="#jilani">Amjad Jilani</a><span class="badge b-plan">Campaign platform</span></div><p>A monthly plain-language dashboard showing where tax dollars go.</p></li><li class="pos pos-plan"><div class="pos-who"><a href="#matulewicz">Mike Matulewicz</a><span class="badge b-plan">Campaign platform</span></div><p>An independent Auditor General and shared watchdog oversight across Peel.</p></li><li class="pos pos-said"><div class="pos-who"><a href="#shaw">David Shaw</a><span class="badge b-said">Reported position</span></div><p>Calls for greater accountability at City Hall.</p></li><li class="pos pos-said"><div class="pos-who"><a href="#vasquez">Ana Luisa Vasquez De Espinal</a><span class="badge b-said">Reported position</span></div><p>One plain-language total tax bill each budget cycle, city communications in residents&#x27; own languages, and longer, independent Integrity Commissioner terms.</p></li><li class="pos pos-none"><div class="pos-who"><span class="badge b-none">Nothing found yet</span></div><p><a href="#ahmed">Karam Ahmed</a>, <a href="#bhatti">Aamir Bhatti</a>, <a href="#crombie">Bonnie Crombie</a>, <a href="#fang">Frank Fang</a>, <a href="#khan">Mohsin Khan</a>, <a href="#naami">Fadi Naami</a>, <a href="#parrish">Carolyn Parrish</a>, <a href="#tedjo">Alvin Tedjo</a></p></li></ul></div>
+<div class="panel" role="tabpanel" id="panel-data" aria-labelledby="tab-data"><h3 class="panel-title">Data centres</h3><ul class="poslist"><li class="pos pos-said"><div class="pos-who"><a href="#crombie">Bonnie Crombie</a><span class="badge b-said">Reported position</span></div><p>Has criticized Parrish for not voting on the July 2026 data-centre pause, and wants a clear position taken.</p></li><li class="pos pos-said"><div class="pos-who"><a href="#damerla">Dipika Damerla</a><span class="badge b-said">Reported position</span></div><p>Opposes subsidizing data centres.</p></li><li class="pos pos-said"><div class="pos-who"><a href="#matulewicz">Mike Matulewicz</a><span class="badge b-said">Reported position</span></div><p>Wants safeguards and infrastructure and environmental review before approvals.</p></li><li class="pos pos-record"><div class="pos-who"><a href="#parrish">Carolyn Parrish</a><span class="badge b-record">Record in office</span></div><p>Council moved to pause large new data centres; she did not vote on the July 2026 motion, saying the chair should stay neutral.</p></li><li class="pos pos-said"><div class="pos-who"><a href="#tedjo">Alvin Tedjo</a><span class="badge b-said">Reported position</span></div><p>No new data centres.</p></li><li class="pos pos-said"><div class="pos-who"><a href="#vasquez">Ana Luisa Vasquez De Espinal</a><span class="badge b-said">Reported position</span></div><p>Backs a moratorium on unreviewed hyperscale data-centre approvals until grid-capacity and air-quality studies are done.</p></li><li class="pos pos-none"><div class="pos-who"><span class="badge b-none">Nothing found yet</span></div><p><a href="#ahmed">Karam Ahmed</a>, <a href="#bhatti">Aamir Bhatti</a>, <a href="#elliott">Gord Elliott</a>, <a href="#fang">Frank Fang</a>, <a href="#jilani">Amjad Jilani</a>, <a href="#khan">Mohsin Khan</a>, <a href="#naami">Fadi Naami</a>, <a href="#shaw">David Shaw</a></p></li></ul></div>
+<div class="panel" role="tabpanel" id="panel-comm" aria-labelledby="tab-comm"><h3 class="panel-title">Parks, youth &amp; community</h3><ul class="poslist"><li class="pos pos-said"><div class="pos-who"><a href="#ahmed">Karam Ahmed</a><span class="badge b-said">Reported position</span></div><p>City incentives to attract teachers.</p></li><li class="pos pos-plan"><div class="pos-who"><a href="#damerla">Dipika Damerla</a><span class="badge b-plan">Campaign platform</span></div><p>A clean parks guarantee, raising seasonal by-law officers from 4 to 24; waived adoption fees for long-stay shelter dogs.</p></li><li class="pos pos-plan"><div class="pos-who"><a href="#jilani">Amjad Jilani</a><span class="badge b-plan">Campaign platform</span></div><p>Major funding for youth mentorship and sports, and keeping sports facilities open until 2 a.m. on weekends.</p></li><li class="pos pos-plan"><div class="pos-who"><a href="#matulewicz">Mike Matulewicz</a><span class="badge b-plan">Campaign platform</span></div><p>A Mississauga Youth Corps with 1,000 paid one-year jobs a year for ages 18–21; neighbourhood air, water and soil monitoring.</p></li><li class="pos pos-pending"><div class="pos-who"><a href="#naami">Fadi Naami</a><span class="badge b-pending">Source pending</span></div><p>Reported to be campaigning on clean neighbourhoods.</p></li><li class="pos pos-plan"><div class="pos-who"><a href="#tedjo">Alvin Tedjo</a><span class="badge b-plan">Campaign platform</span></div><p>Free drop-in swimming and skating for children 12 and under; a free summer outdoor-learning program for ages 6–12.</p></li><li class="pos pos-none"><div class="pos-who"><span class="badge b-none">Nothing found yet</span></div><p><a href="#bhatti">Aamir Bhatti</a>, <a href="#crombie">Bonnie Crombie</a>, <a href="#elliott">Gord Elliott</a>, <a href="#fang">Frank Fang</a>, <a href="#khan">Mohsin Khan</a>, <a href="#parrish">Carolyn Parrish</a>, <a href="#shaw">David Shaw</a>, <a href="#vasquez">Ana Luisa Vasquez De Espinal</a></p></li></ul></div>
+
+    </div>
+  </section>
+
+  <section id="analysis">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">AI analysis</p>
+        <h2>What the analysis found.</h2>
+        <p>These findings describe the field; they do not rank it, and none of them is a recommendation.</p>
+      </div>
+      <p class="byline"><span class="mk mk-plan" aria-hidden="true" style="width:10px;height:10px"></span>Analysis performed by ChatGPT, Gemini and DeepSeek, fact-checked and consolidated by Claude · Sept 25, 2026</p>
+      <div class="analysis">
+        <div class="card finding">
+          <div class="num">01</div>
+          <h3>A crowded field with uneven information.</h3>
+          <p>Four candidates hold or have held major office: <strong>Parrish</strong>, <strong>Crombie</strong>, <strong>Tedjo</strong> and <strong>Damerla</strong>. They receive most of the news coverage and were the four in the first televised debate. Detailed written platforms come from <strong>Damerla</strong>, <strong>Jilani</strong>, <strong>Matulewicz</strong>, <strong>Tedjo</strong> and <strong>Crombie</strong>. For <strong>Khan</strong>, <strong>Bhatti</strong> and <strong>Naami</strong>, almost nothing is on the public record. A thin profile reflects what's been published, not a judgment about the candidate.</p>
+        </div>
+        <div class="card finding">
+          <div class="num">02</div>
+          <h3>Taxes are the sharpest divide.</h3>
+          <p><strong>Tedjo</strong> and <strong>Jilani</strong> propose freezing taxes, and <strong>Damerla</strong> proposes a freeze for 2027. <strong>Matulewicz</strong> targets a 5% operating-budget cut, <strong>Ahmed</strong> wants lower taxes, and <strong>Fang</strong> would “axe” property tax. <strong>Crombie</strong> rejects a freeze in favour of an audit and department cuts. <strong>Parrish</strong> has focused on regional and police cost growth. Keep in mind that a freeze on the <em>city's share</em> doesn't freeze your whole bill, which also includes Region of Peel and school board portions.</p>
+        </div>
+        <div class="card finding">
+          <div class="num">03</div>
+          <h3>Four different ideas for transit.</h3>
+          <p><strong>Crombie</strong> proposes extending TTC Line 2 into downtown Mississauga. <strong>Damerla</strong> offers a cheaper alternative: more stops on the Lakeshore GO line as a "surface subway." <strong>Tedjo</strong> wants a rapid-transit grid and a Dundas East LRT. <strong>Matulewicz</strong> would fund more transit partly through a fuel levy. All of the major rail options depend on provincial or federal funding and partners such as Metrolinx.</p>
+        </div>
+        <div class="card finding">
+          <div class="num">04</div>
+          <h3>Policing is also about who pays.</h3>
+          <p>Peel police are funded through the Region of Peel. <strong>Parrish</strong> left the police board in a budget dispute, while <strong>Crombie</strong> and <strong>Jilani</strong> would seek a seat on it. <strong>Damerla</strong> wants the Mississauga–Brampton cost-sharing formula reviewed. <strong>Matulewicz</strong> proposes civilian responders for non-criminal calls. <strong>Tedjo</strong> is endorsed by the police association. Several candidates focus on auto theft.</p>
+        </div>
+        <div class="card finding">
+          <div class="num">05</div>
+          <h3>Data centres are a live decision.</h3>
+          <p>In September, council unanimously passed a one-year interim control bylaw on new data centres over 10 MW. Positions range from <strong>Tedjo's</strong> "no new data centres" and <strong>Vasquez De Espinal's</strong> support for a moratorium, to <strong>Damerla's</strong> opposition to subsidies and <strong>Matulewicz's</strong> call for safeguards. <strong>Crombie</strong> wants a clear position taken. <strong>Parrish</strong> did not vote on the July motion.</p>
+        </div>
+        <div class="card finding">
+          <div class="num">06</div>
+          <h3>Several candidates want more oversight.</h3>
+          <p>An independent Auditor General appears in <strong>Damerla's</strong> and <strong>Matulewicz's</strong> platforms, and <strong>Crombie</strong> proposes an independent spending audit. <strong>Jilani</strong> and <strong>Vasquez De Espinal</strong> propose plain-language tax reporting. <strong>Elliott</strong> wants developer meetings with council made public.</p>
+        </div>
+        <div class="card finding wide">
+          <div class="num">07</div>
+          <h3>What a mayor can and can't do on their own.</h3>
+          <p>Mississauga's mayor already holds Ontario's strong mayor powers, including proposing the budget. Even so, many commitments depend on council, the Region of Peel, the province or outside partners:</p>
+          <ul>
+            <li><strong>Tax freezes</strong> (Tedjo, Jilani, Damerla) apply to the city's share and still need spending decisions to match.</li>
+            <li><strong>Eliminating property tax</strong> (Fang) would mean replacing the city's largest source of revenue, since Ontario municipalities must balance their budgets.</li>
+            <li><strong>Subway and GO proposals</strong> (Crombie, Damerla) need provincial agreement and funding.</li>
+            <li><strong>Police budgets and the funding formula</strong> (Damerla, Matulewicz, Jilani) are set through the Region of Peel and the police board, not by the city alone.</li>
+            <li><strong>Parrish's</strong> housing record, such as the development-charge cuts, was achieved through council votes during her term.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="context">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">Before you vote</p>
+        <h2>Questions worth asking the candidates.</h2>
+      </div>
+      <div class="two">
+        <div class="card box">
+          <h3>On money and powers</h3>
+          <ol>
+            <li>If you promise a tax freeze or cut, what specific spending would change to pay for it?</li>
+            <li>How would you use the mayor's strong mayor powers, and where would you choose not to use them?</li>
+            <li>Which of your commitments need provincial, federal or Region of Peel approval or funding?</li>
+          </ol>
+        </div>
+        <div class="card box">
+          <h3>On the big local issues</h3>
+          <ol>
+            <li>What should happen when the data-centre interim control bylaw expires?</li>
+            <li>How would you change Peel police costs, or Mississauga's share of them?</li>
+            <li>What, specifically, would you change in your first 100 days?</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="candidates">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">Meet the candidates</p>
+        <h2>Fourteen candidates for mayor.</h2>
+        <p>Listed alphabetically by last name, as on the city's <a href="https://mississaugavotes.ca/2026-municipal-election/for-voters/whos-running/" rel="noopener" target="_blank">official certified candidate list</a>. Each profile uses the same structure: a short bio, documented positions, campaign website, and sources.</p>
+      </div>
+      <div class="cands">
+    <article class="cand" id="ahmed">
+      <header class="cand-head">
+        <div class="avatar" aria-hidden="true">KA</div>
+        <div><h3>Karam Ahmed</h3><p class="role">Automotive and towing industry · First-time candidate</p></div>
+      </header>
+      <p class="bio">Karam Ahmed works in the automotive and towing industry and has lived in Mississauga since 2009. He is a first-time candidate and registered on August 20, 2026, the day before nominations closed. No campaign website was found; his positions come from a statement reported by the Mississauga News and compiled by ONAC.</p>
+      <h4>Documented positions</h4>
+      <ul class="plist"><li><span class="badge b-said">Reported position</span><strong>Taxes &amp; spending.</strong> Lower municipal property taxes, and lobby the province for relief.</li><li><span class="badge b-said">Reported position</span><strong>Public safety &amp; policing.</strong> More regional and provincial police support against auto theft and violent crime.</li><li><span class="badge b-said">Reported position</span><strong>Parks, youth &amp; community.</strong> City incentives to attract teachers.</li></ul>
+      
+      <div class="event"><span class="event-label">Campaign website</span><p><span class="muted">No campaign website found</span></p></div>
+      <details><summary>Sources</summary><ul class="srclist"><li><a href="https://onac.ca/elections/candidates/karam-ahmed/" rel="noopener" target="_blank">ONAC — Karam Ahmed</a></li><li><a href="https://www.mississauga.ca/city-of-mississauga-news/news/official-list-of-2026-municipal-election-candidates-now-available/" rel="noopener" target="_blank">City of Mississauga — Official list of 2026 candidates</a></li></ul></details>
+    </article>
+    <article class="cand" id="bhatti">
+      <header class="cand-head">
+        <div class="avatar" aria-hidden="true">AB</div>
+        <div><h3>Aamir Bhatti</h3><p class="role">Businessman and developer</p></div>
+      </header>
+      <p class="bio">Aamir Bhatti is described in news coverage as a businessman, real estate developer and investor. No campaign website or detailed platform was found, and ONAC reports no public record beyond his candidacy filing.</p>
+      <h4>Documented positions</h4>
+      <ul class="plist"><li><span class="badge b-pending">Source pending</span><strong>Taxes &amp; spending.</strong> Reported to be campaigning on helping families and lowering the cost of living.</li></ul>
+      
+      <div class="event"><span class="event-label">Campaign website</span><p><span class="muted">No campaign website found</span></p></div>
+      <details><summary>Sources</summary><ul class="srclist"><li><a href="https://toronto.citynews.ca/2026/09/08/mississauga-2026-municipal-election-mayoral-candidates/" rel="noopener" target="_blank">CityNews — Mississauga mayoral candidates (Sept 8, 2026)</a></li><li><a href="https://onac.ca/elections/candidates/aamir-bhatti/" rel="noopener" target="_blank">ONAC — Aamir Bhatti</a></li><li><a href="https://www.mississauga.ca/city-of-mississauga-news/news/official-list-of-2026-municipal-election-candidates-now-available/" rel="noopener" target="_blank">City of Mississauga — Official list of 2026 candidates</a></li></ul></details>
+    </article>
+    <article class="cand" id="crombie">
+      <header class="cand-head">
+        <div class="avatar" aria-hidden="true">BC</div>
+        <div><h3>Bonnie Crombie</h3><p class="role">Mayor 2014–2024 · Former Ontario Liberal leader</p></div>
+      </header>
+      <p class="bio">Bonnie Crombie was mayor of Mississauga from 2014 to 2024, after serving as Ward 5 councillor from 2011 to 2014 and as the Liberal MP for Mississauga–Streetsville from 2008 to 2011. She stepped down as mayor in 2024 after being elected leader of the Ontario Liberal Party, a role she held until 2026. She took part in the first televised mayoral debate on September 25.</p>
+      <h4>Documented positions</h4>
+      <ul class="plist"><li><span class="badge b-said">Reported position</span><strong>Taxes &amp; spending.</strong> Rejects a tax freeze (“You can&#x27;t freeze, as you can&#x27;t make up the savings”). Would hire an independent auditor and ask departments to cut spending 10% over her first two years.</li><li><span class="badge b-said">Reported position</span><strong>Housing &amp; development.</strong> Continue the development-charge reductions made under Parrish to lower costs for first-time buyers. Has previously called for eliminating development charges entirely.</li><li><span class="badge b-plan">Campaign platform</span><strong>Transit.</strong> “Mississauga Moves 2.0”: a business case in year one, with the province, Metrolinx, Toronto and the TTC, for extending Line 2 from Kipling through Sherway Gardens into downtown Mississauga; 15-minute MiWay service on major routes; a transit network for Pearson airport workers.</li><li><span class="badge b-plan">Campaign platform</span><strong>Roads, traffic &amp; snow.</strong> A “Traffic Flow First” program with synchronized traffic signals to cut congestion.</li><li><span class="badge b-plan">Campaign platform</span><strong>Public safety &amp; policing.</strong> A Community Safety Plan focused on frontline policing and safer neighbourhoods. Would retake a seat on the Peel Police Services Board, which Parrish left.</li><li><span class="badge b-plan">Campaign platform</span><strong>Economy &amp; jobs.</strong> A Tariff and Trade Resilience Plan: protect local businesses and jobs, favour local and Canadian procurement, and help companies diversify beyond the U.S.</li><li><span class="badge b-said">Reported position</span><strong>Data centres.</strong> Has criticized Parrish for not voting on the July 2026 data-centre pause, and wants a clear position taken.</li></ul>
+      
+      <div class="event"><span class="event-label">Campaign website</span><p><a href="https://www.bonniecrombie.ca/" rel="noopener" target="_blank">bonniecrombie.ca</a></p></div>
+      <details><summary>Sources</summary><ul class="srclist"><li><a href="https://www.bonniecrombie.ca/" rel="noopener" target="_blank">Bonnie Crombie — Campaign site</a></li><li><a href="https://www.bonniecrombie.ca/news/mississauga-moves-2" rel="noopener" target="_blank">Bonnie Crombie — Mississauga Moves 2.0</a></li><li><a href="https://www.cp24.com/local/peel/2026/09/24/it-is-time-bonnie-crombie-pitches-ttc-line-2-extension-into-mississauga/" rel="noopener" target="_blank">CP24 — Crombie pitches TTC Line 2 extension into Mississauga</a></li><li><a href="https://thepointer.com/article/2026-08-19/everything-i-love-and-care-about-is-right-here-in-her-push-to-regain-the-mayor-s-seat-bonnie-crombie-promises-tax-relief-and-a-prosperous-future-for-mississauga" rel="noopener" target="_blank">The Pointer — Crombie promises tax relief (Aug 19, 2026)</a></li><li><a href="https://onac.ca/elections/races/mississauga/" rel="noopener" target="_blank">ONAC — Mississauga race guide</a></li><li><a href="https://ca.news.yahoo.com/mississauga-top-mayoral-candidates-facing-080000820.html" rel="noopener" target="_blank">CBC (via Yahoo) — Mississauga&#x27;s top mayoral candidates face off in 1st debate</a></li><li><a href="https://en.wikipedia.org/wiki/2026_Mississauga_municipal_election" rel="noopener" target="_blank">Wikipedia — 2026 Mississauga municipal election</a></li></ul></details>
+    </article>
+    <article class="cand" id="damerla">
+      <header class="cand-head">
+        <div class="avatar" aria-hidden="true">DD</div>
+        <div><h3>Dipika Damerla</h3><p class="role">Ward 7 councillor · Former MPP and cabinet minister</p></div>
+      </header>
+      <p class="bio">Dipika Damerla has been the Ward 7 councillor since 2018. Before that she was the Liberal MPP for Mississauga East–Cooksville from 2011 to 2018 and served in the provincial cabinet. She finished third in the 2024 mayoral by-election and took part in the first televised mayoral debate on September 25.</p>
+      <h4>Documented positions</h4>
+      <ul class="plist"><li><span class="badge b-plan">Campaign platform</span><strong>Taxes &amp; spending.</strong> Freeze the city&#x27;s share of residential property taxes in 2027, then hold increases to inflation unless tied to added services.</li><li><span class="badge b-plan">Campaign platform</span><strong>Housing &amp; development.</strong> Let a professional engineer&#x27;s seal speed approvals for small residential projects; encourage family-sized, rental, co-op and non-profit housing.</li><li><span class="badge b-plan">Campaign platform</span><strong>Transit.</strong> “OFF We GO” plan: transit-priority signals, 15-minute frequent service and more express buses; MiWay transfers extended to three hours in 2028; more stops on the Lakeshore GO line to create a “surface subway.”</li><li><span class="badge b-plan">Campaign platform</span><strong>Roads, traffic &amp; snow.</strong> A pothole guarantee: major potholes on arterial roads fixed within four days.</li><li><span class="badge b-plan">Campaign platform</span><strong>Public safety &amp; policing.</strong> Targeted CCTV at major intersections and value-for-money audits of police spending. Wants an independent review of the Peel police funding formula, under which she says Mississauga pays about 62% of costs.</li><li><span class="badge b-plan">Campaign platform</span><strong>Economy &amp; jobs.</strong> Fast-track approvals for manufacturers hit by tariffs, a health innovation hub, and “buy Canadian” city purchasing.</li><li><span class="badge b-plan">Campaign platform</span><strong>Accountability &amp; transparency.</strong> An independent Auditor General, a fraud-and-waste hotline, and no severance for politicians who resign or retire.</li><li><span class="badge b-said">Reported position</span><strong>Data centres.</strong> Opposes subsidizing data centres.</li><li><span class="badge b-plan">Campaign platform</span><strong>Parks, youth &amp; community.</strong> A clean parks guarantee, raising seasonal by-law officers from 4 to 24; waived adoption fees for long-stay shelter dogs.</li></ul>
+      
+      <div class="event"><span class="event-label">Campaign website</span><p><a href="https://dipikaformayor.ca/" rel="noopener" target="_blank">dipikaformayor.ca</a></p></div>
+      <details><summary>Sources</summary><ul class="srclist"><li><a href="https://dipikaformayor.ca/" rel="noopener" target="_blank">Dipika Damerla — Campaign site</a></li><li><a href="https://ca.news.yahoo.com/opinion-premier-ford-mississauga-taxpayers-173051639.html" rel="noopener" target="_blank">Dipika Damerla (op-ed via Yahoo) — A fairer deal on policing</a></li><li><a href="https://www.cp24.com/local/peel/2026/09/24/it-is-time-bonnie-crombie-pitches-ttc-line-2-extension-into-mississauga/" rel="noopener" target="_blank">CP24 — Crombie pitches TTC Line 2 extension into Mississauga</a></li><li><a href="https://onac.ca/elections/races/mississauga/" rel="noopener" target="_blank">ONAC — Mississauga race guide</a></li><li><a href="https://ca.news.yahoo.com/mississauga-top-mayoral-candidates-facing-080000820.html" rel="noopener" target="_blank">CBC (via Yahoo) — Mississauga&#x27;s top mayoral candidates face off in 1st debate</a></li><li><a href="https://en.wikipedia.org/wiki/2026_Mississauga_municipal_election" rel="noopener" target="_blank">Wikipedia — 2026 Mississauga municipal election</a></li></ul></details>
+    </article>
+    <article class="cand" id="elliott">
+      <header class="cand-head">
+        <div class="avatar" aria-hidden="true">GE</div>
+        <div><h3>Gord Elliott</h3><p class="role">Printer and small-business owner</p></div>
+      </header>
+      <p class="bio">Gord Elliott is a self-employed printer and small-business owner. He ran as an independent in Mississauga East–Cooksville in the 2021 federal election and registered for mayor on nomination day, August 21, 2026. He has no campaign website; his positions come from Mississauga News reporting compiled by ONAC.</p>
+      <h4>Documented positions</h4>
+      <ul class="plist"><li><span class="badge b-pending">Source pending</span><strong>Taxes &amp; spending.</strong> Reported to oppose property-tax increases.</li><li><span class="badge b-said">Reported position</span><strong>Housing &amp; development.</strong> Housing affordability and tenant protections.</li><li><span class="badge b-said">Reported position</span><strong>Economy &amp; jobs.</strong> Campaigning to represent small-business owners.</li><li><span class="badge b-said">Reported position</span><strong>Accountability &amp; transparency.</strong> Make meetings between developers and council public.</li></ul>
+      
+      <div class="event"><span class="event-label">Campaign website</span><p><span class="muted">No campaign website found</span></p></div>
+      <details><summary>Sources</summary><ul class="srclist"><li><a href="https://onac.ca/elections/candidates/gord-elliott/" rel="noopener" target="_blank">ONAC — Gord Elliott</a></li><li><a href="https://www.mississauga.ca/city-of-mississauga-news/news/official-list-of-2026-municipal-election-candidates-now-available/" rel="noopener" target="_blank">City of Mississauga — Official list of 2026 candidates</a></li></ul></details>
+    </article>
+    <article class="cand" id="fang">
+      <header class="cand-head">
+        <div class="avatar" aria-hidden="true">FF</div>
+        <div><h3>Frank Fang</h3><p class="role">Economist and business executive</p></div>
+      </header>
+      <p class="bio">Frank Fang describes himself as an economist and business executive who has held director and senior roles at financial and trading firms. This is his third run for mayor of Mississauga, after 2022 and 2024, and he ran federally in 2019. His campaign site lists three commitments.</p>
+      <h4>Documented positions</h4>
+      <ul class="plist"><li><span class="badge b-plan">Campaign platform</span><strong>Taxes &amp; spending.</strong> “Axe property tax” during his term.</li><li><span class="badge b-plan">Campaign platform</span><strong>Roads, traffic &amp; snow.</strong> Resolve snow removal in front of residents&#x27; homes.</li><li><span class="badge b-plan">Campaign platform</span><strong>Public safety &amp; policing.</strong> A $10 million reward fund for residents who help prevent or solve crime.</li></ul>
+      
+      <div class="event"><span class="event-label">Campaign website</span><p><a href="https://votefrankfang.ca/" rel="noopener" target="_blank">votefrankfang.ca</a></p></div>
+      <details><summary>Sources</summary><ul class="srclist"><li><a href="https://votefrankfang.ca/" rel="noopener" target="_blank">Frank Fang — Campaign site</a></li><li><a href="https://www.mississauga.ca/city-of-mississauga-news/news/official-list-of-2026-municipal-election-candidates-now-available/" rel="noopener" target="_blank">City of Mississauga — Official list of 2026 candidates</a></li></ul></details>
+    </article>
+    <article class="cand" id="jilani">
+      <header class="cand-head">
+        <div class="avatar" aria-hidden="true">AJ</div>
+        <div><h3>Amjad Jilani</h3><p class="role">Resident candidate · “Not a career politician”</p></div>
+      </header>
+      <p class="bio">Amjad Jilani is running as an outsider, describing himself on his campaign site as “not a career politician. A resident, like yourself.” His site does not include further biographical details, and none were found in the news coverage reviewed.</p>
+      <h4>Documented positions</h4>
+      <ul class="plist"><li><span class="badge b-plan">Campaign platform</span><strong>Taxes &amp; spending.</strong> Zero increase in the city&#x27;s share of residential property tax, paid for by cutting senior management and waste.</li><li><span class="badge b-plan">Campaign platform</span><strong>Housing &amp; development.</strong> Direct growth to areas where water, sewers, roads and transit can handle it.</li><li><span class="badge b-plan">Campaign platform</span><strong>Roads, traffic &amp; snow.</strong> Compounding penalties for late city construction contracts, and a “Dig Once” policy that coordinates utility, water and transit work.</li><li><span class="badge b-plan">Campaign platform</span><strong>Public safety &amp; policing.</strong> City matching grants for neighbourhoods that hire licensed security patrols; seek Mississauga&#x27;s seat on the Peel Police Services Board; more city-funded mental-health crisis workers.</li><li><span class="badge b-plan">Campaign platform</span><strong>Accountability &amp; transparency.</strong> A monthly plain-language dashboard showing where tax dollars go.</li><li><span class="badge b-plan">Campaign platform</span><strong>Parks, youth &amp; community.</strong> Major funding for youth mentorship and sports, and keeping sports facilities open until 2 a.m. on weekends.</li></ul>
+      
+      <div class="event"><span class="event-label">Campaign website</span><p><a href="https://amjadformayor.ca/" rel="noopener" target="_blank">amjadformayor.ca</a></p></div>
+      <details><summary>Sources</summary><ul class="srclist"><li><a href="https://amjadformayor.ca/" rel="noopener" target="_blank">Amjad Jilani — Campaign site</a></li><li><a href="https://amjadformayor.ca/platform" rel="noopener" target="_blank">Amjad Jilani — Platform</a></li><li><a href="https://onac.ca/elections/races/mississauga/" rel="noopener" target="_blank">ONAC — Mississauga race guide</a></li></ul></details>
+    </article>
+    <article class="cand" id="khan">
+      <header class="cand-head">
+        <div class="avatar" aria-hidden="true">MK</div>
+        <div><h3>Mohsin Khan</h3><p class="role">Certified candidate</p></div>
+      </header>
+      <p class="bio">Mohsin Khan is a certified candidate for mayor. No campaign website, platform or public statements were found, and ONAC reports no public record beyond his name and filing date.</p>
+      <h4>Documented positions</h4>
+      <ul class="plist"><li class="empty">No platform or public positions found yet. If you are this candidate, please <a href="mailto:dskura@gmail.com">send your platform</a> and it will be added using the same method as everyone else.</li></ul>
+      
+      <div class="event"><span class="event-label">Campaign website</span><p><span class="muted">No campaign website found</span></p></div>
+      <details><summary>Sources</summary><ul class="srclist"><li><a href="https://onac.ca/elections/candidates/mohsin-khan/" rel="noopener" target="_blank">ONAC — Mohsin Khan</a></li><li><a href="https://www.mississauga.ca/city-of-mississauga-news/news/official-list-of-2026-municipal-election-candidates-now-available/" rel="noopener" target="_blank">City of Mississauga — Official list of 2026 candidates</a></li></ul></details>
+    </article>
+    <article class="cand" id="matulewicz">
+      <header class="cand-head">
+        <div class="avatar" aria-hidden="true">MM</div>
+        <div><h3>Mike Matulewicz</h3><p class="role">Retired Toronto Police officer (34 years)</p></div>
+      </header>
+      <p class="bio">Mike Matulewicz is a long-time Mississauga resident who retired after 34 years with the Toronto Police Service, with experience in community policing, budgets and police governance. He finished 12th in the 2024 mayoral by-election and ran as an independent in Mississauga–Erin Mills in the 2025 provincial election. He says he would donate his mayor&#x27;s salary to Mississauga charities.</p>
+      <h4>Documented positions</h4>
+      <ul class="plist"><li><span class="badge b-plan">Campaign platform</span><strong>Taxes &amp; spending.</strong> Target at least a 5% cut to the city&#x27;s operating budget, focused on administration; property-tax deferral for seniors.</li><li><span class="badge b-plan">Campaign platform</span><strong>Housing &amp; development.</strong> A community land trust for permanently affordable housing, including on city land.</li><li><span class="badge b-said">Reported position</span><strong>Transit.</strong> Major transit investment, partly funded by a proposed fuel levy.</li><li><span class="badge b-plan">Campaign platform</span><strong>Public safety &amp; policing.</strong> A 305-person civilian Community Response Unit for non-criminal 911 calls; scrutiny of Peel police budget growth; funding for safe shelter for women fleeing violence.</li><li><span class="badge b-plan">Campaign platform</span><strong>Accountability &amp; transparency.</strong> An independent Auditor General and shared watchdog oversight across Peel.</li><li><span class="badge b-said">Reported position</span><strong>Data centres.</strong> Wants safeguards and infrastructure and environmental review before approvals.</li><li><span class="badge b-plan">Campaign platform</span><strong>Parks, youth &amp; community.</strong> A Mississauga Youth Corps with 1,000 paid one-year jobs a year for ages 18–21; neighbourhood air, water and soil monitoring.</li></ul>
+      
+      <div class="event"><span class="event-label">Campaign website</span><p><a href="https://www.getreadyontario.com/" rel="noopener" target="_blank">getreadyontario.com</a></p></div>
+      <details><summary>Sources</summary><ul class="srclist"><li><a href="https://www.getreadyontario.com/" rel="noopener" target="_blank">Mike Matulewicz — Campaign site</a></li><li><a href="https://onac.ca/elections/races/mississauga/" rel="noopener" target="_blank">ONAC — Mississauga race guide</a></li><li><a href="https://en.wikipedia.org/wiki/2026_Mississauga_municipal_election" rel="noopener" target="_blank">Wikipedia — 2026 Mississauga municipal election</a></li></ul></details>
+    </article>
+    <article class="cand" id="naami">
+      <header class="cand-head">
+        <div class="avatar" aria-hidden="true">FN</div>
+        <div><h3>Fadi Naami</h3><p class="role">Realtor</p></div>
+      </header>
+      <p class="bio">Fadi Naami is described in news coverage as a realtor. He has no live campaign website; ONAC reports his campaign is mostly on Facebook.</p>
+      <h4>Documented positions</h4>
+      <ul class="plist"><li><span class="badge b-pending">Source pending</span><strong>Public safety &amp; policing.</strong> Reported to be campaigning on safer communities.</li><li><span class="badge b-pending">Source pending</span><strong>Economy &amp; jobs.</strong> Reported to be campaigning on economic growth.</li><li><span class="badge b-pending">Source pending</span><strong>Parks, youth &amp; community.</strong> Reported to be campaigning on clean neighbourhoods.</li></ul>
+      
+      <div class="event"><span class="event-label">Campaign website</span><p><span class="muted">No campaign website found</span></p></div>
+      <details><summary>Sources</summary><ul class="srclist"><li><a href="https://toronto.citynews.ca/2026/09/08/mississauga-2026-municipal-election-mayoral-candidates/" rel="noopener" target="_blank">CityNews — Mississauga mayoral candidates (Sept 8, 2026)</a></li><li><a href="https://onac.ca/elections/candidates/fadi-naami/" rel="noopener" target="_blank">ONAC — Fadi Naami</a></li><li><a href="https://www.mississauga.ca/city-of-mississauga-news/news/official-list-of-2026-municipal-election-candidates-now-available/" rel="noopener" target="_blank">City of Mississauga — Official list of 2026 candidates</a></li></ul></details>
+    </article>
+    <article class="cand" id="parrish">
+      <header class="cand-head">
+        <div class="avatar" aria-hidden="true">CP</div>
+        <div><h3>Carolyn Parrish</h3><p class="role">Incumbent mayor (since 2024)</p></div>
+      </header>
+      <p class="bio">Carolyn Parrish has been mayor since winning the June 2024 by-election. She was previously a city and regional councillor (Ward 6, 2006–2010, and Ward 5, 2014–2024), an MP from 1993 to 2006, first as a Liberal and later as an independent, and a school trustee. Her 2026 campaign site focuses on her record in office rather than new commitments. She took part in the first televised mayoral debate on September 25.</p>
+      <h4>Documented positions</h4>
+      <ul class="plist"><li><span class="badge b-said">Reported position</span><strong>Taxes &amp; spending.</strong> Has called large budget increases “unsustainable” and wants more tax dollars kept in Mississauga.</li><li><span class="badge b-record">Record in office</span><strong>Housing &amp; development.</strong> Created the Mayor&#x27;s Housing Task Force. Council cut residential development charges 50% in January 2025 (100% for qualifying three-bedroom rentals) and expanded affordable-rental incentives from $44M to $70M. Her campaign cites $401.4M in housing-infrastructure funding.</li><li><span class="badge b-record">Record in office</span><strong>Public safety &amp; policing.</strong> Resigned from the Peel Police Services Board in a dispute over the size of the police budget and how it is funded.</li><li><span class="badge b-record">Record in office</span><strong>Data centres.</strong> Council moved to pause large new data centres; she did not vote on the July 2026 motion, saying the chair should stay neutral.</li></ul>
+      <p class="note">Also reported, source pending: opposes a property-tax freeze (CityNews). Her 2024 by-election platform included quarterly ward budget consultations, gentle infill, a builders&#x27; advisory panel and rezoning vacant offices and declining malls for housing; these have not been restated on her 2026 site.</p>
+      <div class="event"><span class="event-label">Campaign website</span><p><a href="https://parrishformayor.com/" rel="noopener" target="_blank">parrishformayor.com</a></p></div>
+      <details><summary>Sources</summary><ul class="srclist"><li><a href="https://parrishformayor.com/" rel="noopener" target="_blank">Carolyn Parrish — Campaign site</a></li><li><a href="https://onac.ca/elections/candidates/carolyn-parrish/" rel="noopener" target="_blank">ONAC — Carolyn Parrish</a></li><li><a href="https://onac.ca/elections/races/mississauga/" rel="noopener" target="_blank">ONAC — Mississauga race guide</a></li><li><a href="https://www.modernmississauga.com/main/2024/6/3/2024-mississauga-mayoral-candidate-profile-carolyn-parrish" rel="noopener" target="_blank">Modern Mississauga — Carolyn Parrish 2024 candidate profile</a></li><li><a href="https://ca.news.yahoo.com/mississauga-top-mayoral-candidates-facing-080000820.html" rel="noopener" target="_blank">CBC (via Yahoo) — Mississauga&#x27;s top mayoral candidates face off in 1st debate</a></li><li><a href="https://en.wikipedia.org/wiki/2026_Mississauga_municipal_election" rel="noopener" target="_blank">Wikipedia — 2026 Mississauga municipal election</a></li></ul></details>
+    </article>
+    <article class="cand" id="shaw">
+      <header class="cand-head">
+        <div class="avatar" aria-hidden="true">DS</div>
+        <div><h3>David Shaw</h3><p class="role">Third run for mayor</p></div>
+      </header>
+      <p class="bio">David Shaw is running for mayor for the third time. He finished second to Bonnie Crombie in 2022 with about 6.8% of the vote, and fifth in the 2024 by-election. No current campaign website was found; his 2026 positions come from ONAC&#x27;s candidate profile.</p>
+      <h4>Documented positions</h4>
+      <ul class="plist"><li><span class="badge b-said">Reported position</span><strong>Taxes &amp; spending.</strong> Strongly opposes tax increases and calls for closer scrutiny of city spending.</li><li><span class="badge b-said">Reported position</span><strong>Housing &amp; development.</strong> Supports more housing and calls affordability important, but no detailed plan was found. Opposes “15-minute cities.”</li><li><span class="badge b-said">Reported position</span><strong>Accountability &amp; transparency.</strong> Calls for greater accountability at City Hall.</li></ul>
+      
+      <div class="event"><span class="event-label">Campaign website</span><p><span class="muted">No campaign website found</span></p></div>
+      <details><summary>Sources</summary><ul class="srclist"><li><a href="https://onac.ca/elections/candidates/david-shaw/" rel="noopener" target="_blank">ONAC — David Shaw</a></li><li><a href="https://en.wikipedia.org/wiki/2026_Mississauga_municipal_election" rel="noopener" target="_blank">Wikipedia — 2026 Mississauga municipal election</a></li></ul></details>
+    </article>
+    <article class="cand" id="tedjo">
+      <header class="cand-head">
+        <div class="avatar" aria-hidden="true">AT</div>
+        <div><h3>Alvin Tedjo</h3><p class="role">Ward 2 councillor · Endorsed by Peel police union</p></div>
+      </header>
+      <p class="bio">Alvin Tedjo has been the Ward 2 councillor since 2022 and finished second in the 2024 mayoral by-election. He is a former director of government relations at Sheridan College, ran for the Ontario Liberal leadership in 2020, and was the Liberal candidate in Oakville North–Burlington in the 2018 provincial election. The Peel Regional Police Association has endorsed him, the first time it has publicly backed a municipal candidate. He took part in the first televised mayoral debate on September 25.</p>
+      <h4>Documented positions</h4>
+      <ul class="plist"><li><span class="badge b-plan">Campaign platform</span><strong>Taxes &amp; spending.</strong> Freeze property taxes. His detailed priorities page adds a $420 rebate for seniors with household income under $60,000 and a 15% property-tax cut for small businesses. On council he proposed a holiday on property-tax late fees.</li><li><span class="badge b-plan">Campaign platform</span><strong>Housing &amp; development.</strong> Missing-middle housing, homes on underused land, faster approvals and programs for families priced out of the market.</li><li><span class="badge b-plan">Campaign platform</span><strong>Transit.</strong> A rapid-transit grid, more buses and operators, and a new Dundas East LRT. Says Crombie&#x27;s subway plan is “a step behind” without provincial support.</li><li><span class="badge b-plan">Campaign platform</span><strong>Public safety &amp; policing.</strong> A municipal task force on auto theft, and work with other governments to crack down on crime.</li><li><span class="badge b-said">Reported position</span><strong>Data centres.</strong> No new data centres.</li><li><span class="badge b-plan">Campaign platform</span><strong>Parks, youth &amp; community.</strong> Free drop-in swimming and skating for children 12 and under; a free summer outdoor-learning program for ages 6–12.</li></ul>
+      <p class="note">Note: the rebate, small-business, transit, housing and recreation details come from a priorities page whose wording (“until 2026”) suggests it was written for his 2024 campaign. His current priorities page confirms the tax freeze.</p>
+      <div class="event"><span class="event-label">Campaign website</span><p><a href="https://www.alvintedjo.ca/" rel="noopener" target="_blank">alvintedjo.ca</a></p></div>
+      <details><summary>Sources</summary><ul class="srclist"><li><a href="https://www.alvintedjo.ca/priorities" rel="noopener" target="_blank">Alvin Tedjo — Priorities</a></li><li><a href="https://www.alvintedjo.ca/priorities-1" rel="noopener" target="_blank">Alvin Tedjo — Priorities (detailed page)</a></li><li><a href="https://onac.ca/elections/candidates/alvin-tedjo/" rel="noopener" target="_blank">ONAC — Alvin Tedjo</a></li><li><a href="https://www.cp24.com/local/peel/2026/09/24/it-is-time-bonnie-crombie-pitches-ttc-line-2-extension-into-mississauga/" rel="noopener" target="_blank">CP24 — Crombie pitches TTC Line 2 extension into Mississauga</a></li><li><a href="https://ca.news.yahoo.com/mississauga-top-mayoral-candidates-facing-080000820.html" rel="noopener" target="_blank">CBC (via Yahoo) — Mississauga&#x27;s top mayoral candidates face off in 1st debate</a></li><li><a href="https://en.wikipedia.org/wiki/2026_Mississauga_municipal_election" rel="noopener" target="_blank">Wikipedia — 2026 Mississauga municipal election</a></li></ul></details>
+    </article>
+    <article class="cand" id="vasquez">
+      <header class="cand-head">
+        <div class="avatar" aria-hidden="true">AV</div>
+        <div><h3>Ana Luisa Vasquez De Espinal</h3><p class="role">Residential property consultant · First-time candidate</p></div>
+      </header>
+      <p class="bio">Ana Luisa Vasquez De Espinal moved to Canada in 2013 and works as a residential property consultant and Ontario marriage officer. She is the founder and president of the Toronto Latino Lions Club and a first-time candidate. Her slogan is “Keep What&#x27;s Right, Change What&#x27;s Wrong.”</p>
+      <h4>Documented positions</h4>
+      <ul class="plist"><li><span class="badge b-said">Reported position</span><strong>Roads, traffic &amp; snow.</strong> Year 1: an independent inspection of water, sewer, road and transit systems. Infrastructure spending would begin in Year 2.</li><li><span class="badge b-pending">Source pending</span><strong>Economy &amp; jobs.</strong> “City Hall at the speed of business,” with development charges set so they don&#x27;t block smaller projects.</li><li><span class="badge b-said">Reported position</span><strong>Accountability &amp; transparency.</strong> One plain-language total tax bill each budget cycle, city communications in residents&#x27; own languages, and longer, independent Integrity Commissioner terms.</li><li><span class="badge b-said">Reported position</span><strong>Data centres.</strong> Backs a moratorium on unreviewed hyperscale data-centre approvals until grid-capacity and air-quality studies are done.</li></ul>
+      
+      <div class="event"><span class="event-label">Campaign website</span><p><a href="https://analuisaformississaugamayor.ca/" rel="noopener" target="_blank">analuisaformississaugamayor.ca</a></p></div>
+      <details><summary>Sources</summary><ul class="srclist"><li><a href="https://onac.ca/elections/candidates/ana-luisa-vasquez-de-espinal/" rel="noopener" target="_blank">ONAC — Ana Luisa Vasquez De Espinal</a></li><li><a href="https://analuisaformississaugamayor.ca/" rel="noopener" target="_blank">Ana Luisa Vasquez De Espinal — Campaign site</a></li><li><a href="https://www.mississauga.ca/city-of-mississauga-news/news/official-list-of-2026-municipal-election-candidates-now-available/" rel="noopener" target="_blank">City of Mississauga — Official list of 2026 candidates</a></li></ul></details>
+    </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="dates">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">Key dates</p>
+        <h2>When and how to vote.</h2>
+        <p>Check <a href="https://mississaugavotes.ca/2026-municipal-election/" rel="noopener" target="_blank">mississaugavotes.ca</a> for voting locations and any changes.</p>
+      </div>
+      <ol class="timeline">
+        <li class="past"><time>Fri, Sept 25</time><div><h3>First televised mayoral debate</h3><p>CBC Peel, Sheridan College Hazel McCallion Campus · Crombie, Damerla, Parrish and Tedjo took part.</p></div></li>
+        <li><time>Oct 6–11</time><div><h3>Advance voting</h3><p>Vote at any advance voting location in the city.</p></div></li>
+        <li class="key"><time>Mon, Oct 26</time><div><h3>Election day</h3><p>Vote at any voting location within your ward.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="method">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">Our commitments</p>
+        <h2>Built to inform, not persuade.</h2>
+      </div>
+      <div class="principles">
+        <div class="principle"><h3>Nonpartisan</h3><p>This site does not endorse any candidate and is not affiliated with any campaign, party, or the City of Mississauga. Every candidate gets the same structure, the same issues and the same scrutiny.</p></div>
+        <div class="principle"><h3>Sourced</h3><p>Every position links to a campaign website, news report or election guide. Anything we couldn't trace to an original source is marked "source pending."</p></div>
+        <div class="principle"><h3>Verify for yourself</h3><p>AI models can make mistakes, and campaigns change. Use this guide as a starting point and check the candidates' own words before you vote.</p></div>
+      </div>
+      <div class="card method">
+        <h3>How this was put together</h3>
+        <ul>
+          <li>Candidate research was performed by three AI engines: ChatGPT, Gemini and DeepSeek.</li>
+          <li>Claude checked their findings against original sources, corrected errors, removed claims that didn't match their sources and consolidated the results into this guide.</li>
+          <li>The candidate list comes from the City of Mississauga's official certified list.</li>
+          <li>Positions come from campaign websites and news coverage published up to September 25, 2026. Where a platform dates from an earlier campaign, the profile says so.</li>
+          <li>For candidates without websites, positions often come from ONAC (Ontarians Against Corruption), a self-described nonpartisan accountability group that compiles candidate profiles, largely from Mississauga News reporting. Those positions are marked "Reported position."</li>
+        </ul>
+        <details><summary>All sources</summary><ul class="allsrc"><li><a href="https://www.mississauga.ca/city-of-mississauga-news/news/official-list-of-2026-municipal-election-candidates-now-available/" rel="noopener" target="_blank">City of Mississauga — Official list of 2026 candidates</a></li><li><a href="https://mississaugavotes.ca/2026-municipal-election/for-voters/whos-running/" rel="noopener" target="_blank">Mississauga Votes — Who&#x27;s running</a></li><li><a href="https://onac.ca/elections/races/mississauga/" rel="noopener" target="_blank">ONAC — Mississauga race guide</a></li><li><a href="https://ca.news.yahoo.com/mississauga-top-mayoral-candidates-facing-080000820.html" rel="noopener" target="_blank">CBC (via Yahoo) — Mississauga&#x27;s top mayoral candidates face off in 1st debate</a></li><li><a href="https://en.wikipedia.org/wiki/2026_Mississauga_municipal_election" rel="noopener" target="_blank">Wikipedia — 2026 Mississauga municipal election</a></li><li><a href="https://toronto.citynews.ca/2026/09/08/mississauga-2026-municipal-election-mayoral-candidates/" rel="noopener" target="_blank">CityNews — Mississauga mayoral candidates (Sept 8, 2026)</a></li><li><a href="https://onac.ca/elections/candidates/karam-ahmed/" rel="noopener" target="_blank">ONAC — Karam Ahmed</a></li><li><a href="https://onac.ca/elections/candidates/aamir-bhatti/" rel="noopener" target="_blank">ONAC — Aamir Bhatti</a></li><li><a href="https://www.bonniecrombie.ca/" rel="noopener" target="_blank">Bonnie Crombie — Campaign site</a></li><li><a href="https://www.bonniecrombie.ca/news/mississauga-moves-2" rel="noopener" target="_blank">Bonnie Crombie — Mississauga Moves 2.0</a></li><li><a href="https://www.cp24.com/local/peel/2026/09/24/it-is-time-bonnie-crombie-pitches-ttc-line-2-extension-into-mississauga/" rel="noopener" target="_blank">CP24 — Crombie pitches TTC Line 2 extension into Mississauga</a></li><li><a href="https://thepointer.com/article/2026-08-19/everything-i-love-and-care-about-is-right-here-in-her-push-to-regain-the-mayor-s-seat-bonnie-crombie-promises-tax-relief-and-a-prosperous-future-for-mississauga" rel="noopener" target="_blank">The Pointer — Crombie promises tax relief (Aug 19, 2026)</a></li><li><a href="https://dipikaformayor.ca/" rel="noopener" target="_blank">Dipika Damerla — Campaign site</a></li><li><a href="https://ca.news.yahoo.com/opinion-premier-ford-mississauga-taxpayers-173051639.html" rel="noopener" target="_blank">Dipika Damerla (op-ed via Yahoo) — A fairer deal on policing</a></li><li><a href="https://onac.ca/elections/candidates/gord-elliott/" rel="noopener" target="_blank">ONAC — Gord Elliott</a></li><li><a href="https://votefrankfang.ca/" rel="noopener" target="_blank">Frank Fang — Campaign site</a></li><li><a href="https://amjadformayor.ca/" rel="noopener" target="_blank">Amjad Jilani — Campaign site</a></li><li><a href="https://amjadformayor.ca/platform" rel="noopener" target="_blank">Amjad Jilani — Platform</a></li><li><a href="https://onac.ca/elections/candidates/mohsin-khan/" rel="noopener" target="_blank">ONAC — Mohsin Khan</a></li><li><a href="https://www.getreadyontario.com/" rel="noopener" target="_blank">Mike Matulewicz — Campaign site</a></li><li><a href="https://onac.ca/elections/candidates/fadi-naami/" rel="noopener" target="_blank">ONAC — Fadi Naami</a></li><li><a href="https://parrishformayor.com/" rel="noopener" target="_blank">Carolyn Parrish — Campaign site</a></li><li><a href="https://onac.ca/elections/candidates/carolyn-parrish/" rel="noopener" target="_blank">ONAC — Carolyn Parrish</a></li><li><a href="https://www.modernmississauga.com/main/2024/6/3/2024-mississauga-mayoral-candidate-profile-carolyn-parrish" rel="noopener" target="_blank">Modern Mississauga — Carolyn Parrish 2024 candidate profile</a></li><li><a href="https://onac.ca/elections/candidates/david-shaw/" rel="noopener" target="_blank">ONAC — David Shaw</a></li><li><a href="https://www.alvintedjo.ca/priorities" rel="noopener" target="_blank">Alvin Tedjo — Priorities</a></li><li><a href="https://www.alvintedjo.ca/priorities-1" rel="noopener" target="_blank">Alvin Tedjo — Priorities (detailed page)</a></li><li><a href="https://onac.ca/elections/candidates/alvin-tedjo/" rel="noopener" target="_blank">ONAC — Alvin Tedjo</a></li><li><a href="https://onac.ca/elections/candidates/ana-luisa-vasquez-de-espinal/" rel="noopener" target="_blank">ONAC — Ana Luisa Vasquez De Espinal</a></li><li><a href="https://analuisaformississaugamayor.ca/" rel="noopener" target="_blank">Ana Luisa Vasquez De Espinal — Campaign site</a></li></ul></details>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="notice">
+        <div>
+          <h2>Are you a candidate, or spot something to fix?</h2>
+          <p>Candidates are welcome to send their official platform, and anyone can send a correction with a source. Changes are applied the same way for every candidate.</p>
+        </div>
+        <a class="btn" href="mailto:dskura@gmail.com">Get in touch</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Clear Ballot Mississauga · An independent voter information project, not affiliated with the City of Mississauga · Last updated Sept 25, 2026</span>
+    <span>Contact: <a href="mailto:dskura@gmail.com">dskura@gmail.com</a></span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  document.body.classList.remove('no-js');
+  document.body.classList.add('js');
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
+  var panels = Array.prototype.slice.call(document.querySelectorAll('.panel'));
+  function show(id, focus) {
+    tabs.forEach(function (t) {
+      var on = t.getAttribute('data-issue') === id;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
+      if (on && focus) t.focus();
+      if (on) t.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+    });
+    panels.forEach(function (p) { p.hidden = p.id !== 'panel-' + id; });
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { show(t.getAttribute('data-issue')); });
+    t.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+        var n = (i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length;
+        show(tabs[n].getAttribute('data-issue'), true);
+        e.preventDefault();
+      }
+    });
+  });
+  document.querySelectorAll('.rowbtn').forEach(function (b) {
+    b.addEventListener('click', function () {
+      show(b.getAttribute('data-issue'));
+      document.getElementById('issues').scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+  if (tabs.length) show(tabs[0].getAttribute('data-issue'));
+})();
+</script>
+</body>
+</html>
